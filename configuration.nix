@@ -5,10 +5,14 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./cachykernel.nix
+      ./ai.nix
+      ./ambxst.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
 
   networking.hostName = "nix-den"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -54,8 +58,6 @@
     description = "Timothy Bear";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
-    
-    ];
   };
 
   nix = {

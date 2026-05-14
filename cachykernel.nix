@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }: {
   nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
-  boot.kernelPackages = pkgs.linuxPackagesFor inputs.nix-cachyos-kernel.packages.${pkgs.system}.linux-cachyos-latest-lto-x86_64-v3;
+#  boot.kernelPackages = pkgs.linuxPackagesFor inputs.nix-cachyos-kernel.packages.${pkgs.system}.linux-cachyos-latest-lto-x86_64-v3;
 
   # 2. Binary cache settings
   nix.settings = {
