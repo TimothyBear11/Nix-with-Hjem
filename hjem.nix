@@ -5,47 +5,47 @@
     enable = true;
 
     xdg.config.files."fastfetch" = {
-      source = ./nix/configs/fastfetch;
+      source = ./configs/fastfetch;
       clobber = true;
     };
 
     xdg.config.files."fish" = {
-      source = ./nix/configs/fish;
+      source = ./configs/fish;
       clobber = true;
     };
 
     xdg.config.files."fuzzel" = {
-      source = ./nix/configs/fuzzel;
+      source = ./configs/fuzzel;
       clobber = true;
     };
 
     xdg.config.files."hypr" = {
-      source = ./nix/configs/hypr;
+      source = ./configs/hypr;
       clobber = true;
     };
 
     xdg.config.files."kitty" = {
-      source = ./nix/configs/kitty;
+      source = ./configs/kitty;
       clobber = true;
     };
 
     xdg.config.files."mango" = {
-      source = ./nix/configs/mango;
+      source = ./configs/mango;
       clobber = true;
     };
 
     xdg.config.files."niri" = {
-      source = ./nix/configs/niri;
+      source = ./configs/niri;
       clobber = true;
     };
 
     xdg.config.files."nvim" = {
-      source = ./nix/configs/nvim;
+      source = ./configs/nvim;
       clobber = true;
     };
 
     xdg.config.files."qtile" = {
-      source = ./nix/configs/qtile;
+      source = ./configs/qtile;
       clobber = true;
     };
   };
