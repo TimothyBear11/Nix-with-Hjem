@@ -16,7 +16,7 @@
     antigravity
 
     # -- Productivity --
-    direnv         s
+    direnv
     lazygit
     bat
     eza

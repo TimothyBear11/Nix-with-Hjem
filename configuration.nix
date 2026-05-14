@@ -12,6 +12,7 @@
       ./fontsAndNeeds.nix
       ./gaming.nix
       ./hardware-configuration.nix
+      ./hjem.nix
       ./kernel.nix
       ./lazyvim.nix
       ./mango.nix
@@ -85,10 +86,6 @@
     };
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   programs.direnv.enable = true;

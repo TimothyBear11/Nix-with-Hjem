@@ -1,0 +1,17 @@
+// --- Startup Applications ---
+
+// System Services
+spawn-at-startup "/usr/libexec/polkit-gnome-authentication-agent-1"
+spawn-at-startup "kdeconnect-indicator"
+spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store"
+
+// Favorites & Workspaces
+spawn-at-startup "zed"
+spawn-at-startup "floorp"
+spawn-at-startup "steam" "-silent"
+
+
+// Keep the overlay hidden on boot
+hotkey-overlay {
+    skip-at-startup
+}

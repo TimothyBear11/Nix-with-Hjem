@@ -7,31 +7,27 @@
     vim
     wget
     tree
-    gh # Required for credentials
+    gh
   ];
 
   programs.git = {
     enable = true;
     config = {
-      # 1. Identity (So you can delete ~/.gitconfig safely)
       user = {
         name = "TimothyBear11"; 
         email = "timothybear1183@pm.me"; 
       };
       
-      # 2. Set default branch to main
       init = {
         defaultBranch = "main";
       };
       
-      # 3. Fix the credential helper (Nix-proof)
       credential = {
         helper = "!gh auth git-credential";
       };
     };
   };
 
-  # --- Fonts ---
   fonts.fontconfig.enable = true;
   fonts.packages = with pkgs; [
     noto-fonts

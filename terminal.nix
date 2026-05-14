@@ -9,7 +9,7 @@
   ];
 
 
-  environment.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     foot
     kdePackages.konsole
     btop

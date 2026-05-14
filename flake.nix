@@ -33,15 +33,16 @@
 
     illogical-flake.url = "github:soymou/illogical-flake";
     illogical-flake.inputs.nixpkgs.follows = "nixpkgs";
+
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, ... }:
   let
     system = "x86_64-linux";
-
-    youtuiOverlay = final: prev: {
-      youtui = final.callPackage ./youtui.nix {};
-    };
 
     app2unitOverlay = final: prev: {
       app2unit = prev.app2unit.overrideAttrs (old: {
@@ -58,10 +59,10 @@
         inputs.mangowm.nixosModules.mango
         inputs.dms.nixosModules.default
         inputs.niri.nixosModules.niri
+        inputs.hjem.nixosModules.default
         
         {
           nixpkgs.overlays = [
-            youtuiOverlay
             app2unitOverlay 
             inputs.nix-openclaw.overlays.default
             inputs.millennium.overlays.default

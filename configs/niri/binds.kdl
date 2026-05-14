@@ -1,0 +1,92 @@
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // --- DMS Shell Interfaces ---
+    // Swapping "qs ipc call" for native "dms" commands
+    Mod+D { spawn "dms" "open" "launcher"; }
+    Mod+F1 { spawn "dms" "open" "dashboard"; }
+    Mod+F2 { spawn "dms" "open" "settings"; }
+    Mod+F3 { spawn "dms" "open" "clipboard"; }
+    Mod+F4 { spawn "dms" "open" "powermenu"; }
+    Mod+F5 { spawn "dms" "open" "calendar"; }
+    Mod+F6 { spawn "dms" "open" "dashboard"; } // DMS usually combines system/control here
+
+    // --- Standard Applications ---
+    Mod+B { spawn "floorp"; }
+    Mod+Return { spawn "konsole"; }
+    Mod+S { spawn "steam"; }
+    Mod+H { spawn "heroic"; }
+    Mod+Z { spawn "zed"; }
+    Mod+E { spawn "cosmic-files"; }
+    Mod+T { spawn "flatpak" "run" "org.telegram.desktop"; }
+
+    // --- Audio & Brightness (DMS OSD Handlers) ---
+    XF86AudioRaiseVolume { spawn "dms" "audio" "volume-up"; }
+    XF86AudioLowerVolume { spawn "dms" "audio" "volume-down"; }
+    XF86AudioMute        { spawn "dms" "audio" "toggle-mute"; }
+    XF86MonBrightnessUp   { spawn "dms" "backlight" "brightness-up"; }
+    XF86MonBrightnessDown { spawn "dms" "backlight" "brightness-down"; }
+
+    // --- Window & Workspace Management (Native Niri) ---
+    Mod+O repeat=false { toggle-overview; }
+    Mod+Q repeat=false { close-window; }
+
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-workspace-down; }
+    Mod+Up    { focus-workspace-up; }
+    Mod+Right { focus-column-right; }
+
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-column-to-workspace-down; }
+    Mod+Shift+Up    { move-column-to-workspace-up; }
+    Mod+Shift+Right { move-column-right; }
+
+    Mod+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Ctrl+Right { move-column-to-monitor-right; }
+
+    // Workspace Navigation
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
+    Mod+Ctrl+7 { move-column-to-workspace 7; }
+    Mod+Ctrl+8 { move-column-to-workspace 8; }
+    Mod+Ctrl+9 { move-column-to-workspace 9; }
+
+    // Layout Controls
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+Shift+C { center-column; }
+    Mod+Ctrl+C { center-visible-columns; }
+
+    // Floating Management
+    Mod+Ctrl+V { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    // Tabbed Display
+    Mod+W { toggle-column-tabbed-display; }
+
+    // Screenshots
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    // Safety & Session
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    Mod+Shift+E { quit; }
+    Ctrl+Alt+Delete { quit; }
+    Mod+Shift+P { power-off-monitors; }
+}

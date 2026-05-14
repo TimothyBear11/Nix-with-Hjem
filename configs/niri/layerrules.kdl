@@ -1,0 +1,15 @@
+// --- Fixed layerrules.kdl ---
+layer-rule {
+    match namespace="^dms$"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^dms-.*"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^dms-launcher$"
+    place-within-backdrop true
+}
