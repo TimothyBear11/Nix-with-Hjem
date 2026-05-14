@@ -2,20 +2,29 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./cachykernel.nix
+    [
       ./ai.nix
       ./ambxst.nix
+      ./apps.nix
+      ./desktops.nix
+      ./dev.nix
+      ./dms.nix
+      ./fontsAndNeeds.nix
+      ./gaming.nix
+      ./hardware-configuration.nix
+      ./kernel.nix
+      ./lazyvim.nix
+      ./mango.nix
+      ./noctalia.nix
+      ./qtile.nix
+      ./terminal.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
 
-  networking.hostName = "nix-den"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "nix-den";
+  networking.wireless.enable = true;
   networking.networkmanager.enable = true;
 
   
@@ -81,15 +90,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    gh
-  ];
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;

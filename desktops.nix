@@ -1,0 +1,63 @@
+{ config, pkgs, inputs, ... }:
+
+{
+  services.xserver.enable = true;
+  services.xserver.xkb.layout = "us";
+
+  #services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
+
+  programs.hyprland.enable = true;
+  programs.niri = {
+    enable = true;
+    package = inputs.niri.packages.${pkgs.system}.niri-unstable;
+  };
+  programs.dconf.enable = true;
+
+  security.polkit.enable = true;
+
+  # Polkit Agent Service
+  systemd.user.services.polkit-gnome-authentication-agent-1 = {
+    description = "polkit-gnome-authentication-agent-1";
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      Restart = "on-failure";
+    };
+  };
+
+  # XDG Portals for Wayland
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "*";
+  };
+
+    environment.systemPackages = with pkgs; [
+    xwayland-satellite
+    libsForQt5.qt5ct
+    kdePackages.qt6ct
+    wl-clipboard
+    kanshi
+    wlr-randr
+    grim
+    slurp
+    pavucontrol
+    polkit_gnome
+    gnome-keyring
+    cosmic-ext-applet-weather
+    cosmic-ext-applet-minimon
+    cosmic-ext-applet-caffeine
+  ];
+
+  environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qt6ct";
+    QT_QPA_PLATFORM = "wayland;xcb";
+  };
+}

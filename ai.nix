@@ -29,7 +29,9 @@
     # Force ROCm compatibility for the RX 6700 XT (gfx1031)
     rocmOverrideGfx = "10.3.0";
     # Automatically download and load this model on startup
-    loadModels = [ "llama3.2" ];
-    loadModels = [ "qwen2.5-coder:7b"]
+    loadModels = [
+      "llama3.2"
+      "qwen2.5-coder:7b"
+    ];
   };
 }
