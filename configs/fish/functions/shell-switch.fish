@@ -22,24 +22,24 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
     set -l new_idx (contains --index $new_shell $shells)
 
     if test -z "$new_idx"
-        echo -e "$RED[ERROR]$NC Unknown shell target option: $new_shell"
+        echo -e "$RED""[ERROR]$NC Unknown shell target option: $new_shell"
         return 1
     end
 
     # 1. Kill the active canvas wrapper processes
-    echo -e "$GREEN[INFO]$NC Clearing existing shell interface..."
+    echo -e "$GREEN""[INFO]$NC Clearing existing shell interface..."
     kill -9 (pgrep -f ".quickshell-wra") 2>/dev/null
     pkill -9 -f quickshell 2>/dev/null
     sleep 0.5
 
     # 2. Update the persistent state file for your autostart.lua to read
     set -l state_file "$HOME/.config/hypr/.active_shell"
-    echo -e "$GREEN[INFO]$NC Saving shell state selection: $new_shell"
+    echo -e "$GREEN""[INFO]$NC Saving shell state selection: $new_shell"
     echo "$new_shell" >$state_file
 
     # 3. Fire up the newly chosen shell instantly in the background
-    echo -e "$GREEN[INFO]$NC Starting $new_shell..."
+    echo -e "$GREEN""[INFO]$NC Starting $new_shell..."
     eval $launch_cmds[$new_idx] >/dev/null 2>&1 &
     sleep 1
-    echo -e "$GREEN[INFO]$NC Switched to $names[$new_idx] successfully!"
+    echo -e "$GREEN""[INFO]$NC Switched to $names[$new_idx] successfully!"
 end
