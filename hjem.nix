@@ -130,5 +130,23 @@
       source = ./configs/noctalia/colorschemes/Marchborn/Marchborn.json;
       clobber = true;
     };
+
+    # --- HJEM --- 
+    xdg.config.files."helix/config.toml" = {
+      clobber = true;
+      text = ''
+        theme = "noctalia"
+
+        [editor]
+        line-numbers = "relative"
+        mouse = true
+        cursorline = true
+
+        [editor.cursor-shape]
+        insert = "bar"
+        normal = "block"
+        select = "underline"
+      '';
+    };
   };
 }
