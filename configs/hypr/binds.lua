@@ -2,10 +2,37 @@
 --- KEYBINDINGS ---
 -------------------
 
-local terminal = "kitty"
 local fileManager = "dolphin"
-local menu = "wofi --show drun"
+
+-- 1. NOCTALIA IPC BINDINGS
 local noct = "noctalia-shell ipc call"
+local noctLauncher = noct .. " launcher toggle"
+local noctCC = noct .. " controlCenter toggle"
+local noctSettings = noct .. " settings toggle"
+local noctClip = noct .. " launcher clipboard"
+local noctSession = noct .. " sessionMenu toggle"
+
+-- 2. CAELESTIA IPC BINDINGS (Mixing Hyprland Global Events with Shell Binaries)
+local caelLauncher = "hyprctl dispatch global caelestia:launcher"
+local caelCC = "hyprctl dispatch global caelestia:showall" -- Toggles the control panels layer
+local caelSettings = "caelestia shell drawers toggle 'settings'" -- Falls back to drawers target execution
+local caelClip = "caelestia clipboard" -- Launches native clipboard engine directly
+local caelSession = "hyprctl dispatch global caelestia:session"
+
+-- 3. DMS IPC BINDINGS
+local dms = "dms ipc call"
+local dmsLauncher = dms .. " launcher toggle"
+local dmsCC = dms .. " control-center toggle"
+local dmsSettings = dms .. " settings toggle"
+local dmsClip = dms .. " clipboard toggle"
+local dmsSession = dms .. " powermenu toggle"
+
+-- Combined Universal Macro Command Pipelines
+local toggleLauncher = string.format("%s ; %s ; %s", noctLauncher, caelLauncher, dmsLauncher)
+local toggleCC = string.format("%s ; %s ; %s", noctCC, caelCC, dmsCC)
+local toggleSettings = string.format("%s ; %s ; %s", noctSettings, caelSettings, dmsSettings)
+local toggleClip = string.format("%s ; %s ; %s", noctClip, caelClip, dmsClip)
+local toggleSession = string.format("%s ; %s ; %s", noctSession, caelSession, dmsSession)
 
 local mainMod = "SUPER"
 local shellMod = "SUPER + ALT"
@@ -32,12 +59,12 @@ hl.bind(shellMod .. " + D", hl.dsp.exec_cmd("fish -c 'shell-switch dms'"))
 hl.bind(shellMod .. " + N", hl.dsp.exec_cmd("fish -c 'shell-switch noctalia'"))
 hl.bind(shellMod .. " + E", hl.dsp.exec_cmd("fish -c 'shell-switch end4'"))
 
--- Noctalia shell commands
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(noct .. " launcher toggle"))
-hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd(noct .. " controlCenter toggle"))
-hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(noct .. " settings toggle"))
-hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(noct .. " launcher clipboard"))
-hl.bind(mainMod .. " + F4", hl.dsp.exec_cmd(noct .. " sessionMenu toggle"))
+-- Clean, Explicit Functional Layout Overlaps
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(toggleLauncher)) -- App Launcher
+hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd(toggleCC)) -- Control Center Panel
+hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(toggleSettings)) -- System Configuration Settings
+hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(toggleClip)) -- Clipboard History Panel
+hl.bind(mainMod .. " + F4", hl.dsp.exec_cmd(toggleSession)) -- Power/Session Menu
 
 -- Music controls (Shifted to CTRL + ALT cluster to prevent focus layout overlap)
 hl.bind(mediaMod .. " + Up", hl.dsp.exec_cmd("music-play"))
@@ -53,8 +80,8 @@ hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "d" }))
 
 -- Switch workspaces
 for i = 1, 9 do
-    hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
-    hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+	hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
+	hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 hl.bind(mainMod .. " + 0", hl.dsp.focus({ workspace = 10 }))
 hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
@@ -71,9 +98,40 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
--- Media keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(noct .. " volume increase"), { repeating = true, locked = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(noct .. " volume decrease"), { repeating = true, locked = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(noct .. " volume muteOutput"), { locked = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(noct .. " brightness increase"), { repeating = true, locked = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(noct .. " brightness decrease"), { repeating = true, locked = true })
+-- Overlapping Hardware Media Controls (DMS inherits system wireplumber directly)
+hl.bind(
+	"XF86AudioRaiseVolume",
+	hl.dsp.exec_cmd(
+		"noctalia-shell ipc call volume increase ; wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ ; dms ipc call volume increase"
+	),
+	{ repeating = true, locked = true }
+)
+hl.bind(
+	"XF86AudioLowerVolume",
+	hl.dsp.exec_cmd(
+		"noctalia-shell ipc call volume decrease ; wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- ; dms ipc call volume decrease"
+	),
+	{ repeating = true, locked = true }
+)
+hl.bind(
+	"XF86AudioMute",
+	hl.dsp.exec_cmd(
+		"noctalia-shell ipc call volume muteOutput ; wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ; dms ipc call volume muteOutput"
+	),
+	{ locked = true }
+)
+hl.bind(
+	"XF86MonBrightnessUp",
+	hl.dsp.exec_cmd(
+		"noctalia-shell ipc call brightness increase ; brightnessctl set +5% ; dms ipc call brightness increase"
+	),
+	{ repeating = true, locked = true }
+)
+hl.bind(
+	"XF86MonBrightnessDown",
+	hl.dsp.exec_cmd(
+		"noctalia-shell ipc call brightness decrease ; brightnessctl set 5%- ; dms ipc call brightness decrease"
+	),
+	{ repeating = true, locked = true }
+)
+
