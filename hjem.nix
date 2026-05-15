@@ -9,6 +9,14 @@
       source = ./configs/fish/config.fish;
       clobber = true;
     };
+    xdg.config.files."fish/fish_plugins" = {
+      source = ./configs/fish/fish_plugins;
+      clobber = true;
+    };
+    xdg.config.files."fish/fish_variables" = {
+      source = ./configs/fish/fish_variables;
+      clobber = true;
+    };
     xdg.config.files."fish/conf.d/fish_frozen_key_bindings.fish" = {
       source = ./configs/fish/conf.d/fish_frozen_key_bindings.fish;
       clobber = true;
