@@ -138,7 +138,7 @@
         theme = "noctalia"
 
         [editor]
-        line-numbers = "relative"
+        line-number = "relative"
         mouse = true
         cursorline = true
 
