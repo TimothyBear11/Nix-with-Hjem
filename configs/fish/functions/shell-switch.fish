@@ -18,8 +18,10 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
 
     set -l new_shell $argv[1]
 
-    # Fish native list indexing to find the selected target index
-    if not set -l new_idx (contains --index $new_shell $shells)
+    # Find the selected target index smoothly
+    set -l new_idx (contains --index $new_shell $shells)
+
+    if test -z "$new_idx"
         echo -e "$RED[ERROR]$NC Unknown shell target option: $new_shell"
         return 1
     end
@@ -41,4 +43,3 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
     sleep 1
     echo -e "$GREEN[INFO]$NC Switched to $names[$new_idx] successfully!"
 end
-
