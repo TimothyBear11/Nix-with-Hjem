@@ -80,7 +80,7 @@
     xdg.config.files."fish/functions/gitnrs.fish" = {
       source = ./configs/fish/functions/gitnrs.fish;
       clobber = true;
-      }
+      };
 
     # --- FASTFETCH ---
     xdg.config.files."fastfetch/empty_config.jsonc" = {
