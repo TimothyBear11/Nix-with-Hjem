@@ -4,6 +4,7 @@
   hjem.users.tbear = {
     directory = "/home/tbear";
 
+
     # --- FISH ---
     xdg.config.files."fish/config.fish" = {
       source = ./configs/fish/config.fish;
@@ -13,7 +14,7 @@
       source = ./configs/fish/fish_plugins;
       clobber = true;
     };
-    
+
     xdg.config.files."fish/conf.d/fish_frozen_key_bindings.fish" = {
       source = ./configs/fish/conf.d/fish_frozen_key_bindings.fish;
       clobber = true;
@@ -70,12 +71,17 @@
       source = ./configs/fish/functions/play.fish;
       clobber = true;
     };
-    
+
+    xdg.config.files."fish/functions/shell-switch.fish" = {
+      source = ./configs/fish/functions/shell-switch.fish;
+      clobber = true;
+    };
+
     # --- FASTFETCH ---
     xdg.config.files."fastfetch/empty_config.jsonc" = {
       source = ./configs/fastfetch/empty_config.jsonc;
       clobber = true;
-    };  
+    };
 
     # --- HYPRLAND ---
     xdg.config.files."hypr/autostart.lua" = {
@@ -124,5 +130,5 @@
       source = ./configs/noctalia/colorschemes/Marchborn/Marchborn.json;
       clobber = true;
     };
-  };  
+  };
 }
