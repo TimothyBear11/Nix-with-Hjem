@@ -60,10 +60,10 @@
         inputs.dms.nixosModules.default
         inputs.niri.nixosModules.niri
         inputs.hjem.nixosModules.default
-        
+
         {
           nixpkgs.overlays = [
-            app2unitOverlay 
+            app2unitOverlay
             inputs.nix-openclaw.overlays.default
             inputs.millennium.overlays.default
           ];

@@ -24,14 +24,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      openldap = prev.openldap.overrideAttrs (oldAttrs: {
-        doCheck = false; # Forces nix to skip the broken replication tests
-      });
-    })
-  ];
-
   networking.hostName = "nix-den";
   networking.wireless.enable = true;
   networking.networkmanager.enable = true;
