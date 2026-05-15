@@ -18,6 +18,7 @@
       ./noctalia.nix
       ./qtile.nix
       ./terminal.nix
+      ./caelestia.nix
     ];
 
   # Bootloader setup
