@@ -19,6 +19,7 @@
       ./qtile.nix
       ./terminal.nix
       ./caelestia.nix
+      ./emacs.nix 
     ];
 
   # Bootloader setup
