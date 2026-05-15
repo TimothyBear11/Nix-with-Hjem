@@ -1,6 +1,6 @@
 function nrs
-  set -l flake_dir "$HOME/nixdots"
-  set -l host "my-nix-den"
+  set -l flake_dir "$HOME/nix"
+  set -l host "nix-den"
 
   pushd $flake_dir > /dev/null
 

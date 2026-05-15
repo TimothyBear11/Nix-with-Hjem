@@ -1,68 +1,83 @@
 { config, pkgs, ... }:
 
 {
-  # 1. Native Nix Configuration Module
-  programs.kitty = {
-    enable = true;
+  # 1. Install Kitty system-wide so the binary is available
+  environment.systemPackages = [ pkgs.kitty ];
 
-    settings = {
-      # --- Window Layout & Behavior ---
-      scrollback_lines = 10000;
-      window_padding_width = 12;
-      hide_window_decorations = "yes";
-      background_opacity = "0.9";
-      confirm_os_window_close = 0;
-      enabled_layouts = "splits,stack,tall";
+  # 2. Let Hjem handle your configuration layout declaratively
+  hjem.users.tbear = {
+    files.".config/kitty/kitty.conf".text = ''
+      # ==========================================
+      # Window Layout & Behavior
+      # ==========================================
+      scrollback_lines = 10000
+      window_padding_width = 12
+      hide_window_decorations = yes
+      background_opacity = 0.9
+      confirm_os_window_close = 0
+      enabled_layouts = splits,stack,tall
 
-      # --- Functionality & Advanced ---
-      allow_remote_control = "yes";
-      listen_on = "unix:/tmp/kitty";
-      shell_integration = "enabled";
-      mouse_hide_wait = "3.0";
-      
-      # Fix: Explicitly point to the absolute store binary path for Fish
-      shell = "${pkgs.fish}/bin/fish";
+      # ==========================================
+      # Functionality & Mouse
+      # ==========================================
+      allow_remote_control = yes
+      listen_on = unix:/tmp/kitty
+      shell_integration = enabled
+      mouse_hide_wait = 3.0
+      shell = ${pkgs.fish}/bin/fish
 
-      # --- Cursor Trail Animation ---
-      cursor_trail = 1;
-      cursor_trail_decay = "0.1 0.4";
-      cursor_trail_start_threshold = 2;
+      # ==========================================
+      # Cursor Trail Animation
+      # ==========================================
+      cursor_trail = 1
+      cursor_trail_decay = 0.1 0.4
+      cursor_trail_start_threshold = 2
 
-      # --- Marchborn Guardian Aesthetics ---
-      background = "#151A1C";
-      foreground = "#E1E8E6";
-      selection_background = "#2A5A5C";
-      selection_foreground = "#E1E8E6";
-      cursor = "#FF4D4D";
-      cursor_text_color = "#151A1C";
-      cursor_shape = "block";
-      cursor_blink_interval = "0.5";
-      url_color = "#4DB8FF";
+      # ==========================================
+      # Color Scheme & Cursor (Marchborn Guardian)
+      # ==========================================
+      background = #151A1C
+      foreground = #E1E8E6
+      selection_background = #2A5A5C
+      selection_foreground = #E1E8E6
 
-      # The 16 Terminal Colors
-      color0 = "#151A1C"; color8 = "#2A5A5C";
-      color1 = "#FF4D4D"; color9 = "#FF7373";
-      color2 = "#2A5A5C"; color10 = "#4DB8FF";
-      color3 = "#E5C07B"; color11 = "#E5D09B";
-      color4 = "#4DB8FF"; color12 = "#73C6FF";
-      color5 = "#C678DD"; color13 = "#D698ED";
-      color6 = "#56B6C2"; color14 = "#76C6D2";
-      color7 = "#E1E8E6"; color15 = "#FFFFFF";
-    };
+      cursor = #FF4D4D
+      cursor_text_color = #151A1C
+      cursor_shape = block
+      cursor_blink_interval = 0.5
+      url_color = #4DB8FF
 
-    keybindings = {
-      "alt+left" = "neighboring_window left";
-      "alt+right" = "neighboring_window right";
-      "alt+up" = "neighboring_window up";
-      "alt+down" = "neighboring_window down";
-      "f1" = "toggle_layout stack";
-      "ctrl+alt+enter" = "launch --cwd=current";
-      "ctrl+shift+enter" = "launch --cwd=current";
-      "ctrl+shift+h" = "split_window horizontal";
-      "ctrl+shift+v" = "split_window vertical";
-    };
+      # The 16 terminal colors
+      color0 = #151A1C
+      color8 = #2A5A5C
+      color1 = #FF4D4D
+      color9 = #FF7373
+      color2 = #2A5A5C
+      color10 = #4DB8FF
+      color3 = #E5C07B
+      color11 = #E5D09B
+      color4 = #4DB8FF
+      color12 = #73C6FF
+      color5 = #C678DD
+      color13 = #D698ED
+      color6 = #56B6C2
+      color14 = #76C6D2
+      color7 = #E1E8E6
+      color15 = #FFFFFF
 
-    extraConfig = ''
+      # ==========================================
+      # Keybindings & Scrollback
+      # ==========================================
+      map alt+left neighboring_window left
+      map alt+right neighboring_window right
+      map alt+up neighboring_window up
+      map alt+down neighboring_window down
+      map f1 toggle_layout stack
+      map ctrl+alt+enter launch --cwd=current
+      map ctrl+shift+enter launch --cwd=current
+      map ctrl+shift+h split_window horizontal
+      map ctrl+shift+v split_window vertical
+
       # Open scrollback in nvim directly
       scrollback_pager nvim -c "set signcolumn=no showtabline=0" -c "autocmd TermOpen * startinsert" -c "terminal"
 
