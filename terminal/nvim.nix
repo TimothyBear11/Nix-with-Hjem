@@ -53,6 +53,6 @@
   # 4. Hjem Live-Symlink Mirroring
   hjem.users.tbear = {
     # Recursively symlinks your entire local nvim config directory live from your repository folder
-    files.".config/nvim".source = ../config/nvim; 
+    files.".config/nvim".source = ../configs/nvim; 
   };
 }

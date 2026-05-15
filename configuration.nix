@@ -112,7 +112,7 @@
       # Pin global nixpkgs channel registry to local paths for instant offline resolution
       nix-path = [ "nixpkgs=${pkgs.path}" ];
     };
-    registry.nixpkgs.flake = pkgs.src;
+    
   };
 
   nixpkgs.config.allowUnfree = true;
