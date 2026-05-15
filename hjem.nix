@@ -67,8 +67,8 @@
     };
 
     # --- NOCTALIA ---
-    xdg.config.files."noctalia/colorschemes/Marchborn/Marchborn!.json" = {
-      source = ./configs/noctalia/colorschemes/Marchborn/Marchborn!.json;
+    xdg.config.files."noctalia/colorschemes/Marchborn/Marchborn.json" = {
+      source = ./configs/noctalia/colorschemes/Marchborn/Marchborn.json;
       clobber = true;
     };
   };  
