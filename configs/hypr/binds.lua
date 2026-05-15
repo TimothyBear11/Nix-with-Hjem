@@ -12,12 +12,12 @@ local noctClip = noct .. " launcher clipboard"
 local noctSession = noct .. " sessionMenu toggle"
 
 -- 2. CAELESTIA IPC BINDINGS (Now with escaped string arguments for Quickshell)
-local cael = "caelestia-shell ipc call"
-local caelLauncher = cael .. ' drawers toggle \\"launcher\\"'
-local caelCC = cael .. ' drawers toggle \\"cc\\"'
-local caelSettings = cael .. ' drawers toggle \\"settings\\"'
-local caelClip = "caelestia clipboard"
-local caelSession = cael .. ' drawers toggle \\"session\\"'
+local cael = "caelestia shell"
+local caelLauncher = cael .. " drawers toggle 'launcher'"
+local caelCC = cael .. " drawers toggle 'cc'"
+local caelSettings = cael .. " drawers toggle 'settings'"
+local caelClip = cael .. " picker openClip"
+local caelSession = cael .. " drawers toggle 'session'"
 
 -- 3. DMS IPC BINDINGS
 local dms = "dms ipc call"
