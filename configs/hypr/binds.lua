@@ -1,7 +1,6 @@
 -------------------
 --- KEYBINDINGS ---
 -------------------
-
 local fileManager = "dolphin"
 
 -- 1. NOCTALIA IPC BINDINGS
@@ -12,12 +11,13 @@ local noctSettings = noct .. " settings toggle"
 local noctClip = noct .. " launcher clipboard"
 local noctSession = noct .. " sessionMenu toggle"
 
--- 2. CAELESTIA IPC BINDINGS (Mixing Hyprland Global Events with Shell Binaries)
-local caelLauncher = "hyprctl dispatch global caelestia:launcher"
-local caelCC = "hyprctl dispatch global caelestia:showall" -- Toggles the control panels layer
-local caelSettings = "caelestia shell drawers toggle 'settings'" -- Falls back to drawers target execution
-local caelClip = "caelestia clipboard" -- Launches native clipboard engine directly
-local caelSession = "hyprctl dispatch global caelestia:session"
+-- 2. CAELESTIA IPC BINDINGS (Now with escaped string arguments for Quickshell)
+local cael = "caelestia-shell ipc call"
+local caelLauncher = cael .. ' drawers toggle \\"launcher\\"'
+local caelCC = cael .. ' drawers toggle \\"cc\\"'
+local caelSettings = cael .. ' drawers toggle \\"settings\\"'
+local caelClip = "caelestia clipboard"
+local caelSession = cael .. ' drawers toggle \\"session\\"'
 
 -- 3. DMS IPC BINDINGS
 local dms = "dms ipc call"
@@ -134,4 +134,3 @@ hl.bind(
 	),
 	{ repeating = true, locked = true }
 )
-
