@@ -14,7 +14,7 @@ function goodnight
   git add .
 
   echo "🔧 Rebuilding system…"
-  if not sudo nixos-rebuild switch --flake .#my-nix-den
+  if not sudo nixos-rebuild switch --flake .#nix-den
     echo "❌ Rebuild failed — aborting shutdown."
     return 1
   end
