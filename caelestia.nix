@@ -51,7 +51,7 @@
           "desktopClock": {
             "enabled": true,
             "scale": 1.0,
-            "position": "bottom-right",
+            "position": "top-right",
             "shadow": { "enabled": true, "opacity": 0.7, "blur": 0.4 }
           },
           "visualiser": {
