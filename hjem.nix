@@ -13,6 +13,58 @@
       source = ./configs/fish/conf.d/fish_frozen_key_bindings.fish;
       clobber = true;
     };
+    xdg.config.files."fish/functions/fupdate-safe.fish" = {
+      source = ./configs/fish/functions/fupdate-safe.fish;
+      clobber = true;
+    };
+    xdg.config.files."fish/functions/git-safe.fish" = {
+      source = ./configs/fish/functions/git-safe.fish;
+      clobber = true;
+    };
+    xdg.config.files."fish/functions/goodnight.fish" = {
+      source = ./configs/fish/functions/goodnight.fish;
+      clobber = true;
+    };
+    xdg.config.files."fish/functions/music-next.fish" = {
+      source = ./configs/fish/functions/music-next.fish;
+      clobber = true;
+    };
+    xdg.config.files."fish/functions/music-pause.fish" = {
+      source = ./configs/fish/functions/music-pause.fish;
+      clobber = true;
+    };
+    xdg.config.files."fish/functions/music-peek.fish" = {
+      source = ./configs/fish/functions/music-peek.fish;
+      clobber = true;
+    };
+    xdg.config.files."fish/functions/music-play.fish" = {
+      source = ./configs/fish/functions/music-play.fish;
+      clobber = true;
+    };
+    xdg.config.files."fish/functions/music-prev.fish" = {
+      source = ./configs/fish/functions/music-prev.fish;
+      clobber = true;
+    };
+    xdg.config.files."fish/functions/music-stop.fish" = {
+      source = ./configs/fish/functions/music-stop.fish;
+      clobber = true;
+    };
+    xdg.config.files."fish/functions/nix-clean.fish" = {
+      source = ./configs/fish/functions/nix-clean.fish;
+      clobber = true;
+    };
+    xdg.config.files."fish/functions/nix-du.fish" = {
+      source = ./configs/fish/functions/nix-du.fish;
+      clobber = true;
+    };
+    xdg.config.files."fish/functions/nrs.fish" = {
+      source = ./configs/fish/functions/nrs.fish;
+      clobber = true;
+    };
+    xdg.config.files."fish/functions/play.fish" = {
+      source = ./configs/fish/functions/play.fish;
+      clobber = true;
+    };
     
     # --- FASTFETCH ---
     xdg.config.files."fastfetch/empty_config.jsonc" = {

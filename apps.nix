@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # ... (mangohud config) ...
-
   environment.systemPackages = with pkgs; [
     thunar
     thunar-volman
@@ -32,5 +30,7 @@
     wtfutil
     superfile
     bibata-cursors
+    tmux
+    socat
   ];
 }
