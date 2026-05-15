@@ -19,94 +19,101 @@
 
   # 2. Let Hjem map the system configuration files natively
   hjem.users.tbear = {
-    # Main Caelestia Layout Engine Configuration
-    files.".config/caelestia/shell.json".text = ''
-      {
-        "enabled": true,
-        "appearance": {
-          "deformScale": 1,
-          "font": {
-            "family": {
-              "clock": "Rubik",
-              "material": "Material Symbols Rounded",
-              "mono": "ComicShannsMono Nerd Font",
-              "sans": "Rubik"
+    # 1. Main Caelestia Layout Engine Configuration (Swapped to mutable xdg.config.files object format)
+    xdg.config.files."caelestia/shell.json" = {
+      clobber = true;
+      text = ''
+        {
+          "enabled": true,
+          "appearance": {
+            "deformScale": 1,
+            "font": {
+              "family": {
+                "clock": "Rubik",
+                "material": "Material Symbols Rounded",
+                "mono": "ComicShannsMono Nerd Font",
+                "sans": "Rubik"
+              }
+            },
+            "transparency": { "enabled": true, "base": 0.85, "layers": 0.4 }
+          },
+          "general": {
+            "logo": "caelestia",
+            "showOverFullscreen": false,
+            "apps": {
+              "terminal": ["kitty"],
+              "audio": ["pavucontrol"]
             }
           },
-          "transparency": {
+          "background": {
             "enabled": true,
-            "base": 0.85,
-            "layers": 0.4
-          }
-        },
-        "general": {
-          "logo": "caelestia",
-          "showOverFullscreen": false,
-          "apps": {
-            "terminal": ["kitty"],
-            "audio": ["pavucontrol"]
-          }
-        },
-        "background": {
-          "enabled": true,
-          "desktopClock": {
-            "enabled": true,
-            "scale": 1.0,
-            "position": "top-right",
-            "shadow": { "enabled": true, "opacity": 0.7, "blur": 0.4 }
+            "desktopClock": {
+              "enabled": true,
+              "scale": 1.0,
+              "position": "top-right",
+              "shadow": { "enabled": true, "opacity": 0.7, "blur": 0.4 }
+            },
+            "visualiser": {
+              "enabled": true,
+              "blur": false,
+              "autoHide": false,
+              "rounding": 1,
+              "spacing": 1
+            }
           },
-          "visualiser": {
-            "enabled": true,
-            "blur": false,
-            "autoHide": false,
-            "rounding": 1,
-            "spacing": 1
-          }
-        },
-        "bar": {
-          "persistent": true,
-          "showOnHover": false,
-          "entries": [
-            { "id": "logo", "enabled": true },
-            { "id": "workspaces", "enabled": true },
-            { "id": "spacer", "enabled": true },
-            { "id": "activeWindow", "enabled": true },
-            { "id": "spacer", "enabled": true },
-            { "id": "tray", "enabled": true },
-            { "id": "clock", "enabled": true },
-            { "id": "statusIcons", "enabled": true },
-            { "id": "power", "enabled": true }
-          ],
-          "workspaces": {
-            "activeIndicator": true,
-            "activeLabel": "󰮯",
-            "occupiedLabel": "󰮯",
-            "label": "  ",
-            "perMonitorWorkspaces": true,
-            "shown": 3,
-            "showWindows": true
+          "bar": {
+            "persistent": true,
+            "showOnHover": false,
+            "entries": [
+              { "id": "logo", "enabled": true },
+              { "id": "workspaces", "enabled": true },
+              { "id": "spacer", "enabled": true },
+              { "id": "activeWindow", "enabled": true },
+              { "id": "spacer", "enabled": true },
+              { "id": "tray", "enabled": true },
+              { "id": "clock", "enabled": true },
+              { "id": "statusIcons", "enabled": true },
+              { "id": "power", "enabled": true }
+            ],
+            "workspaces": {
+              "activeIndicator": true,
+              "activeLabel": "󰮯",
+              "occupiedLabel": "󰮯",
+              "label": "  ",
+              "perMonitorWorkspaces": true,
+              "shown": 3,
+              "showWindows": true
+            },
+            "clock": {
+              "background": false,
+              "showDate": false,
+              "showIcon": true
+            }
           },
-          "clock": {
-            "background": false,
-            "showDate": false,
-            "showIcon": true
+          "services": {
+            "audioIncrement": 0.05,
+            "brightnessIncrement": 0.05,
+            "useTwelveHourClock": true,
+            "smartScheme": true,
+            "visualiserBars": 45
+          },
+          "paths": {
+            "mediaGif": "root:/assets/bongocat.gif",
+            "sessionGif": "root:/assets/kurukuru.gif",
+            "noNotifsPic": "root:/assets/dino.png",
+            "lockNoNotifsPic": "root:/assets/dino.png",
+            "wallpaperDir": "~/nix/Pictures/Wallpapers",
+            "lyricsDir": "~/Music/lyrics"
           }
-        },
-        "services": {
-          "audioIncrement": 0.05,
-          "brightnessIncrement": 0.05,
-          "useTwelveHourClock": true,
-          "smartScheme": true,
-          "visualiserBars": 45
         }
-      }
-    '';
+      '';
+    };
 
-    # Ensure CAVA drops straight into your standard PipeWire sound graph
-    files.".config/cava/config".text = ''
+    # 2. Ensure CAVA drops straight into your standard PipeWire sound graph
+    xdg.config.files."cava/config".text = ''
       [input]
       method = pipewire
       source = auto
     '';
   };
-}
+} 
