@@ -37,9 +37,13 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
     echo -e "$GREEN""[INFO]$NC Saving shell state selection: $new_shell"
     echo "$new_shell" >$state_file
 
-    # 3. Fire up the newly chosen shell instantly in the background
+    # 3. Fire up the newly chosen shell instantly in the background and disown it
     echo -e "$GREEN""[INFO]$NC Starting $new_shell..."
-    eval $launch_cmds[$new_idx] >/dev/null 2>&1 &
+
+    # We use setsid or nohup to break the TTY binding, then disown the job slot
+    fish -c "$launch_cmds[$new_idx]" >/dev/null 2>&1 &
+    disown
+
     sleep 1
     echo -e "$GREEN""[INFO]$NC Switched to $names[$new_idx] successfully!"
 end
