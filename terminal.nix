@@ -3,9 +3,9 @@
 {
 
   imports = [
-   # ./terminal/fish.nix
-   # ./terminal/nvim.nix
-   # ./terminal/kitty.nix
+   ./terminal/fish.nix
+   ./terminal/nvim.nix
+   ./terminal/kitty.nix
   ];
 
 

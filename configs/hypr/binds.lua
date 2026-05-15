@@ -8,6 +8,8 @@ local menu = "wofi --show drun"
 local noct = "noctalia-shell ipc call"
 
 local mainMod = "SUPER"
+local shellMod = "SUPER + ALT"
+local mediaMod = "CTRL + ALT"
 
 -- Basic commands
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
@@ -21,7 +23,14 @@ hl.bind(mainMod .. " + J", hl.dsp.exec_cmd("joplin"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("floorp"))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("zeditor"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("kitty -e nvim"))
-hl.bind(mainMod .. " + F", hl.dsp.fullscreen("0"))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
+
+-- Core Shell Switcher hotkeys (Invoking our global fish helper)
+hl.bind(shellMod .. " + A", hl.dsp.exec_cmd("fish -c 'shell-switch ambxst'"))
+hl.bind(shellMod .. " + C", hl.dsp.exec_cmd("fish -c 'shell-switch caelestia'"))
+hl.bind(shellMod .. " + D", hl.dsp.exec_cmd("fish -c 'shell-switch dms'"))
+hl.bind(shellMod .. " + N", hl.dsp.exec_cmd("fish -c 'shell-switch noctalia'"))
+hl.bind(shellMod .. " + E", hl.dsp.exec_cmd("fish -c 'shell-switch end4'"))
 
 -- Noctalia shell commands
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(noct .. " launcher toggle"))
@@ -30,12 +39,11 @@ hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(noct .. " settings toggle"))
 hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(noct .. " launcher clipboard"))
 hl.bind(mainMod .. " + F4", hl.dsp.exec_cmd(noct .. " sessionMenu toggle"))
 
--- Music controls
-hl.bind(mainMod .. " + Up", hl.dsp.exec_cmd("music-play"))
-hl.bind(mainMod .. " + Down", hl.dsp.exec_cmd("music-pause"))
-hl.bind(mainMod .. " + Right", hl.dsp.exec_cmd("music-next"))
-hl.bind(mainMod .. " + Left", hl.dsp.exec_cmd("music-play"))
-hl.bind(mainMod .. " + SHIFT + Left", hl.dsp.exec_cmd("music-prev"))
+-- Music controls (Shifted to CTRL + ALT cluster to prevent focus layout overlap)
+hl.bind(mediaMod .. " + Up", hl.dsp.exec_cmd("music-play"))
+hl.bind(mediaMod .. " + Down", hl.dsp.exec_cmd("music-pause"))
+hl.bind(mediaMod .. " + Left", hl.dsp.exec_cmd("music-prev"))
+hl.bind(mediaMod .. " + Right", hl.dsp.exec_cmd("music-next"))
 
 -- Move focus
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "l" }))

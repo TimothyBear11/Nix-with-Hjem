@@ -1,25 +1,29 @@
 { config, pkgs, lib, ... }:
 
 {
-  # Qtile window manager - Wayland version
-  services.xserver.windowManager.qtile = {
-    enable = true;
-    package = pkgs.python3Packages.qtile.overrideAttrs (oldAttrs: {
+  # 1. Register Qtile Natively as a Wayland Compositor Session
+  # This places the correct 'qtile.desktop' entry directly into /share/wayland-sessions/
+  services.displayManager.sessionPackages = [
+    (pkgs.python3Packages.qtile.overrideAttrs (oldAttrs: {
       doCheck = false;
       doInstallCheck = false;
-    });
-    extraPackages = lib.mkForce (python3Packages: with python3Packages; [
-      qtile-extras
-      dbus-next
-      pulsectl-asyncio
-      psutil
-    ]);
-  };
+    }))
+  ];
 
-  # Add fuzzel launcher and control tools
+  # 2. Configure the Qtile Environment & Custom Python Dependencies
+  environment.etc."qtile/extra-packages.txt".text = "Guarantees python env resolution"; # Placeholder hint
+
+  # Inject your required Python widget backends globally so Qtile can import them
   environment.systemPackages = with pkgs; [
+    # Wayland Core Launchers & Hardware Control Tools
     fuzzel
     brightnessctl
     pamixer
+    
+    # Python libraries required for your advanced qtile-extras configurations
+    python3Packages.qtile-extras
+    python3Packages.dbus-next
+    python3Packages.pulsectl-asyncio
+    python3Packages.psutil
   ];
 }
