@@ -16,6 +16,8 @@
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     caelestia-shell.url = "github:caelestia-dots/shell";
+    caelestia-cli.url = "github:caelestia-dots/cli";
+    caelestia-cli.inputs.nixpkgs.follows = "nixpkgs";
 
     dms.url = "github:AvengeMedia/DankMaterialShell";
     dms.inputs.nixpkgs.follows = "nixpkgs";

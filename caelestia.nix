@@ -4,6 +4,7 @@
   # 1. Install the core flake binary and underlying hardware/font runtime packages
   environment.systemPackages = [
     inputs.caelestia-shell.packages.${pkgs.system}.default
+    inputs.caelestia-cli.packages.${pkgs.system}.default
     pkgs.brightnessctl     # Brightness sliders
     pkgs.ddcutil           # External display brightness controls
     pkgs.libqalculate      # Powering the calculator utility (`qalc`)
