@@ -27,11 +27,11 @@ if status is-interactive
 
     # --- Fastfetch (System Info) ---
     if type -q fastfetch
-        fastfetch \
-            --logo "$HOME/Pictures/newlogo1.png" \
-            --logo-type auto \
-            --logo-width 35 \
-            --logo-height 20
+        fastfetch --config "$HOME/.config/fastfetch/empty_config.jsonc" \
+                  --logo "$HOME/nix/Pictures/newlogo1.png" \
+                  --logo-type auto \
+                  --logo-width 35 \
+                  --logo-height 20
     end
 
     # --- Load Custom Functions ---

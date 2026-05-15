@@ -4,58 +4,21 @@
   hjem.users.tbear = {
     directory = "/home/tbear";
 
-    xdg.config.files."fastfetch" = {
-      source = ./configs/fastfetch;
-      type = "copy";
+    xdg.config.files."fish/config.fish" = {
+      source = ./configs/fish/config.fish;
       clobber = true;
     };
 
-    xdg.config.files."fish" = {
-      source = ./configs/fish;
-      type = "copy";
+    # If you have the dummy migration file from earlier, map it individually too:
+    xdg.config.files."fish/conf.d/fish_frozen_key_bindings.fish" = {
+      source = ./configs/fish/conf.d/fish_frozen_key_bindings.fish;
       clobber = true;
     };
-
-    xdg.config.files."fuzzel" = {
-      source = ./configs/fuzzel;
-      type = "copy";
+    
+    xdg.config.files."fastfetch/empty_config.jsonc" = {
+      source = ./configs/fastfetch/empty_config.jsonc;
       clobber = true;
-    };
-
-    xdg.config.files."hypr" = {
-      source = ./configs/hypr;
-      type = "copy";
-      clobber = true;
-    };
-
-    xdg.config.files."kitty" = {
-      source = ./configs/kitty;
-      type = "copy";
-      clobber = true;
-    };
-
-    xdg.config.files."mango" = {
-      source = ./configs/mango;
-      type = "copy";
-      clobber = true;
-    };
-
-    xdg.config.files."niri" = {
-      source = ./configs/niri;
-      type = "copy";
-      clobber = true;
-    };
-
-    xdg.config.files."nvim" = {
-      source = ./configs/nvim;
-      type = "copy";
-      clobber = true;
-    };
-
-    xdg.config.files."qtile" = {
-      source = ./configs/qtile;
-      type = "copy";
-      clobber = true;
-    };
-  };
-}
+    };  
+    
+  };  
+ }
