@@ -45,7 +45,7 @@
     libsForQt5.qt5ct    # Qt5 Theme Configuration
     kdePackages.qt6ct   # Qt6 Theme Configuration (Crucial for Plasma 6 apps under Hyprland)
     wl-clipboard        # Wayland Clipboard engine
-    kansi               # Dynamic display profile manager
+    kanshi               # Dynamic display profile manager
     wlr-randr           # Monitor manipulation tool
     grim                # Screenshot tool
     slurp               # Screen region selector
