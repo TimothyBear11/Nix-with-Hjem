@@ -19,9 +19,9 @@
         normal = "block"
         select = "underline"
 
-        # 🚀 FIXED CLIPBOARD SHORTCUTS
+        # 🚀 TRUE FIXED CLIPBOARD SHORTCUTS
         [keys.normal]
-        "space" = { p = "clipboard_paste_after", P = "clipboard_paste_before", y = "clipboard_yank" }
+        "space" = { p = "paste_clipboard_after", P = "paste_clipboard_before", y = "yank_to_clipboard" }
       '';
     };
   };
