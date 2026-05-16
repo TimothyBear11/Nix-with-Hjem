@@ -1,6 +1,18 @@
 { config, pkgs, inputs, ... }:
 
 {
+  imports = [
+    # Modular Desktop Environments & Compositors
+    ./desktops/ambxst.nix
+    ./desktops/caelestia.nix
+    ./desktops/dms.nix
+    ./desktops/noctalia.nix
+    ./desktops/hyprland.nix
+    ./desktops/niri.nix
+    ./desktops/mango.nix
+    ./desktops/qtile.nix
+  ];
+
   # Core Display Server Settings
   services.xserver.enable = true;
   services.xserver.xkb.layout = "us";
@@ -11,18 +23,6 @@
   # COSMIC components disabled to prioritize Hyprland/Niri workflows without resource fighting
   services.desktopManager.cosmic.enable = false;
   services.displayManager.cosmic-greeter.enable = false;
-
-  # Declarative Wayland Compositors (Tracking your Flake inputs)
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
-  };
-  
-  programs.niri = {
-    enable = true;
-    package = inputs.niri.packages.${pkgs.system}.niri-unstable;
-  };
   
   programs.dconf.enable = true;
 
@@ -33,15 +33,9 @@
       pkgs.xdg-desktop-portal-gtk
     ];
     config = {
-      common = {
-        default = [ "gtk" ];
-      };
-      hyprland = {
-        default = [ "hyprland" "gtk" ];
-      };
-      niri = {
-        default = [ "gnome" "gtk" ]; # Niri fits perfectly with standard GTK/Gnome portal hooks
-      };
+      common = { default = [ "gtk" ]; };
+      hyprland = { default = [ "hyprland" "gtk" ]; };
+      niri = { default = [ "gnome" "gtk" ]; };
     };
   };
 
@@ -51,7 +45,7 @@
     libsForQt5.qt5ct    # Qt5 Theme Configuration
     kdePackages.qt6ct   # Qt6 Theme Configuration (Crucial for Plasma 6 apps under Hyprland)
     wl-clipboard        # Wayland Clipboard engine
-    kanshi              # Dynamic display profile manager
+    kansi               # Dynamic display profile manager
     wlr-randr           # Monitor manipulation tool
     grim                # Screenshot tool
     slurp               # Screen region selector

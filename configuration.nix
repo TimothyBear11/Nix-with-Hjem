@@ -4,7 +4,6 @@
   imports =
     [
       ./ai.nix
-      ./ambxst.nix
       ./apps.nix
       ./desktops.nix
       ./dev.nix
@@ -12,13 +11,9 @@
       ./fontsAndNeeds.nix
       ./gaming.nix
       ./hardware-configuration.nix
-      ./hjem.nix
       ./kernel.nix
-      ./mango.nix
-      ./noctalia.nix
       ./qtile.nix
       ./terminal.nix
-      ./caelestia.nix
       ./emacs.nix 
     ];
 

@@ -5,12 +5,7 @@
     directory = "/home/tbear";
 
 
-    
-    # --- FASTFETCH ---
-    xdg.config.files."fastfetch/empty_config.jsonc" = {
-      source = ./configs/fastfetch/empty_config.jsonc;
-      clobber = true;
-    };
+
 
     # --- HYPRLAND ---
     xdg.config.files."hypr/autostart.lua" = {

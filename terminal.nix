@@ -6,6 +6,8 @@
    ./terminal/fish.nix
    ./terminal/nvim.nix
    ./terminal/kitty.nix
+   ./terminal/helix.nix 
+   ./terminal/emacs.nix
   ];
 
 
