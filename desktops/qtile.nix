@@ -23,17 +23,18 @@
 
   # 3. Map your complete configuration assets using Hjem
   hjem.users.tbear = {
-    # Force global overwrites for all Qtile assets in this module
-    xdg.config.default.clobber = true;
-
     xdg.config.files = {
-      # Core Python Config Mapping
-      "qtile/config.py".source = ../configs/qtile/config.py;
+      # Core Python Config Mapping (Expanded with explicit clobber)
+      "qtile/config.py" = {
+        source = ../configs/qtile/config.py;
+        clobber = true;
+      };
 
       # Executable Initialization Script
       "qtile/executable_autostart.sh" = {
         source = ../configs/qtile/executable_autostart.sh;
         executable = true; # Marks it +x so Qtile can spawn it on login
+        clobber = true;
       };
     };
   };
