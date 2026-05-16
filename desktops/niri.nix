@@ -13,7 +13,7 @@
       "niri/startup.kdl"     = { source = ../configs/niri/startup.kdl;     clobber = true; };     
       "niri/binds.kdl"       = { source = ../configs/niri/binds.kdl;       clobber = true; };
       "niri/env.kdl"         = { source = ../configs/niri/env.kdl;         clobber = true; };
-      "niri/inputs.kdl"      = { source = ../configs/niri/inputs.kdl;      clobber = true; };
+      "niri/input.kdl"       = { source = ../configs/niri/inputs.kdl;      clobber = true; };
       "niri/layout.kdl"      = { source = ../configs/niri/layout.kdl;      clobber = true; };
       "niri/output.kdl"      = { source = ../configs/niri/output.kdl;    clobber = true; };
       "niri/noctalia.kdl"    = { source = ../configs/niri/noctalia.kdl;    clobber = true; };
