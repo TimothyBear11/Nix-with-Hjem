@@ -7,14 +7,12 @@
       ./apps.nix
       ./desktops.nix
       ./dev.nix
-      ./dms.nix
       ./fontsAndNeeds.nix
       ./gaming.nix
       ./hardware-configuration.nix
       ./kernel.nix
-      ./qtile.nix
       ./terminal.nix
-      ./emacs.nix 
+       
     ];
 
   # Bootloader setup
