@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  programs.mango.enable = true;
+  # MangoWM system configurations module space
+  environment.systemPackages = [ ];
 
   hjem.users.tbear = {
     xdg.config.files = {
@@ -22,9 +23,9 @@
       };
 
       # --- Entire Binary Scripts Subdirectory ---
+      # Hjem handles entire folders recursively by default—no flag needed!
       "mango/bin" = {
         source = ./configs/mango/bin;
-        recursive = true;
         clobber = true;
       };
     };
