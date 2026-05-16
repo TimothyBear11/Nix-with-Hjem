@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -6,10 +6,10 @@
   ];
 
   hjem.users.tbear = {
-    # Force global overwrites for any file configured inside this file module
-    xdg.config.default.clobber = true;
-
-    # Map your Marchborn color grid profile
-    xdg.config.files."noctalia/colorschemes/Marchborn/Marchborn.json".source = ../configs/noctalia/colorschemes/Marchborn/Marchborn.json;
+    # Map your Marchborn color grid profile with clobber explicitly assigned inside the block
+    xdg.config.files."noctalia/colorschemes/Marchborn/Marchborn.json" = {
+      source = ../configs/noctalia/colorschemes/Marchborn/Marchborn.json;
+      clobber = true; # 👈 Explicitly set here instead of using the nonexistent default block
+    };
   };
 }
