@@ -18,7 +18,7 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 
 # Noctalia shell (your preferred launcher/panel)
-qs -c noctalia-shell &
+noctalia-shell &
 
 # Audio idle inhibitor - prevents screen sleep when audio is playing
 # Perfect for streaming to prevent screen lock/sleep
