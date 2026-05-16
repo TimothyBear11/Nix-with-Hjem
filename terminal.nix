@@ -8,6 +8,7 @@
    ./terminal/kitty.nix
    ./terminal/helix.nix 
    ./terminal/emacs.nix
+   ./terminal/fastfetch.nix
   ];
 
 
