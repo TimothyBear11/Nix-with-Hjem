@@ -17,7 +17,7 @@
       "mango/tag.conf"      = { source = ../configs/mango/tag.conf;      clobber = true; };
 
       # --- Executable Shell Configurations ---
-      "mango/executable_autostart.sh" = {
+      "mango/autostart.sh" = {
         source = ../configs/mango/executable_autostart.sh;
         executable = true;
         clobber = true;
