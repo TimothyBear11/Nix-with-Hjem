@@ -1,10 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  # All MangoWM system binary configs and dependencies live right here!
-  environment.systemPackages = [
-    # Add any custom overlay packages here if needed later!
-  ];
+  programs.mango.enable = true;
 
   hjem.users.tbear = {
     xdg.config.files = {
