@@ -18,7 +18,7 @@
 
       # --- Executable Shell Configurations ---
       "mango/autostart.sh" = {
-        source = ../configs/mango/executable_autostart.sh;
+        source = ../configs/mango/autostart.sh;
         executable = true;
         clobber = true;
       };
