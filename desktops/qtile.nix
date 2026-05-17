@@ -1,9 +1,22 @@
-{ config, pkgs, lib, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   # 1. Register Qtile Natively as a Wayland Compositor Session
-  services.displayManager.sessionPackages = [
-    (pkgs.python3Packages.qtile.overrideAttrs (oldAttrs: {
+  services.displayManager.sessionPackages = let
+    qtileWrapped = pkgs.python3Packages.qtile.override {
+      extraPackages = python3Packages:
+        with python3Packages; [
+          qtile-extras
+          dbus-next
+          pulsectl-asyncio
+          psutil
+        ];
+    };
+  in [
+    (qtileWrapped.overrideAttrs (oldAttrs: {
       doCheck = false;
       doInstallCheck = false;
     }))
@@ -14,13 +27,8 @@
     fuzzel
     brightnessctl
     pamixer
-    kanshi 
+    kanshi
     swaybg
-    
-    python3Packages.qtile-extras
-    python3Packages.dbus-next
-    python3Packages.pulsectl-asyncio
-    python3Packages.psutil
   ];
 
   # 3. Map your complete configuration assets using Hjem
@@ -33,7 +41,7 @@
       };
 
       # Executable Initialization Script
-      "qtile/executable_autostart.sh" = {
+      "qtile/autostart.sh" = {
         source = ../configs/qtile/autostart.sh;
         executable = true; # Marks it +x so Qtile can spawn it on login
         clobber = true;

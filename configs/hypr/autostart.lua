@@ -5,7 +5,10 @@
 hl.on("hyprland.start", function()
     -- Critical System Services
     hl.exec_cmd("export XDG_CURRENT_DESKTOP=Hyprland && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP") 
+    hl.exec_cmd("nm-applet")
     hl.exec_cmd("kdeconnect-indicator")
+    hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh")
+    hl.exec_cmd("wl-paste --watch cliphist store")
 
     -- Theme & Aesthetic (Marchborn Guardian Cursor)
     hl.exec_cmd("hyprctl setcursor Bibata-Modern-Classic 24")

@@ -51,6 +51,8 @@
     slurp               # Screen region selector
     pavucontrol         # PulseAudio/PipeWire Volume Control GUI
     gnome-keyring       # Secure password/credential storage backend
+    networkmanagerapplet # Network tray icon (nm-applet)
+    cliphist            # Clipboard history backend
     
     # Your Favorite Cosmic Applets
     cosmic-ext-applet-weather

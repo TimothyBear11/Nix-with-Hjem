@@ -11,5 +11,8 @@ sleep 2 # Give Kanshi 2 full seconds to snap the OMEN to Primary
 nm-applet &
 kdeconnect-indicator &
 
+# 6. Start the Gnome Keyring Daemon
+gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
 
-
+# 7. Start clipboard manager
+wl-paste --watch cliphist store &
