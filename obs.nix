@@ -8,7 +8,7 @@
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs            # Essential for screen/window capture on Wayland
       obs-vaapi         # Hardware-accelerated encoding using AMD's VA-API
-      
+      obs-vkcapture
     ];
   };
 
@@ -36,6 +36,6 @@
 
   # 4. Optional user packages for game capture utilities
   environment.systemPackages = with pkgs; [
-    obs-vkcapture # Companion CLI tools for game capture launching
+    obs-cli # Companion CLI tools for game capture launching
   ];
 }
