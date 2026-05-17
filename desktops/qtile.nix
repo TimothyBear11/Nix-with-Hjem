@@ -34,7 +34,7 @@
 
       # Executable Initialization Script
       "qtile/executable_autostart.sh" = {
-        source = ../configs/qtile/executable_autostart.sh;
+        source = ../configs/qtile/autostart.sh;
         executable = true; # Marks it +x so Qtile can spawn it on login
         clobber = true;
       };
