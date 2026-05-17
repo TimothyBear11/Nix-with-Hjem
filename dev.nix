@@ -14,6 +14,8 @@
     positron-bin
     helix
     antigravity
+    code-cursor
+    windsurf
 
     # -- Productivity --
     direnv
