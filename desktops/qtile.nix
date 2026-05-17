@@ -7,13 +7,12 @@
   # 1. Register Qtile Natively as a Wayland Compositor Session
   services.displayManager.sessionPackages = let
     qtileWrapped = pkgs.python3Packages.qtile.override {
-      extraPackages = python3Packages:
-        with python3Packages; [
-          qtile-extras
-          dbus-next
-          pulsectl-asyncio
-          psutil
-        ];
+      extraPackages = with pkgs.python3Packages; [
+        qtile-extras
+        dbus-next
+        pulsectl-asyncio
+        psutil
+      ];
     };
   in [
     (qtileWrapped.overrideAttrs (oldAttrs: {
