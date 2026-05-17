@@ -12,7 +12,7 @@
       ./hardware-configuration.nix
       ./kernel.nix
       ./terminal.nix
-       
+      ./obs.nix 
     ];
 
   # Bootloader setup
