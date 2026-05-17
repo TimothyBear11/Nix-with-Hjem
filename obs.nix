@@ -3,7 +3,7 @@
 {
   # 1. Enable the system-level OBS Studio program module
   # This creates a unified wrapper so OBS seamlessly finds its plugins.
-  programs.obs = {
+  programs.obs-studio = {
     enable = true;
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs            # Essential for screen/window capture on Wayland
