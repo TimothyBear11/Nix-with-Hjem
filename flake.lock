@@ -45,11 +45,11 @@
     "cachyos-kernel": {
       "flake": false,
       "locked": {
-        "lastModified": 1778851262,
-        "narHash": "sha256-lEtNQQdQkC1bWIxBr9po1cW6aD+UzAMxUbe6k3hH1tA=",
+        "lastModified": 1779034201,
+        "narHash": "sha256-KINz+P9ds2XV+jIhPKbWtpXD27K/vZT0FN87GkMBDKM=",
         "owner": "CachyOS",
         "repo": "linux-cachyos",
-        "rev": "e625438b981d774a22e2ba431a2d93e1737462ff",
+        "rev": "791fb8ea6d3cf7c85e596678c25c56fa140591be",
         "type": "github"
       },
       "original": {
@@ -172,11 +172,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778967832,
-        "narHash": "sha256-W5DKAV/aGyAdiFqZNCy/rggV4Jl6H9dN4sSqhtkC4SU=",
+        "lastModified": 1779111805,
+        "narHash": "sha256-tvG5g7KwcbSWUEWI7V4yAMGoDTUhe4sUAlffWwUkdkc=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "c923c4332256de12196e4b91b28489fcfb461d2f",
+        "rev": "8dd891f93a103d89d5fe33e1d26ab769cddf936b",
         "type": "github"
       },
       "original": {
@@ -188,11 +188,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1769126799,
-        "narHash": "sha256-v/VwDphmB+pdp51d65feDAXYLxU3juUIOIvVVT43oP4=",
+        "lastModified": 1778966846,
+        "narHash": "sha256-N7HUWD3dliyPDXA5qXhuma5segnnopgPo2nv5iFaeXc=",
         "ref": "refs/heads/main",
-        "rev": "1b4c439c3e8286809747becfc59461b484345bfa",
-        "revCount": 5856,
+        "rev": "c0706258b1ff22c70f6c0e51c4b812e63703f620",
+        "revCount": 6244,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/end-4/dots-hyprland"
@@ -363,11 +363,11 @@
         "quickshell": "quickshell_3"
       },
       "locked": {
-        "lastModified": 1774402626,
-        "narHash": "sha256-sksKfX5fjG+lLZBrJT8q1yGl5Y7ucUg6Eo2IOAybhBA=",
+        "lastModified": 1779068758,
+        "narHash": "sha256-7osZ24TmUVDWZDxQ8Bi/P6GYiqTWw5azNWaVd+GfohY=",
         "owner": "soymou",
         "repo": "illogical-flake",
-        "rev": "1dab49284ce76f3fa9ed317282ad7c94a782f6ba",
+        "rev": "8629ef302b956cf6ab0089338a867dbe844156fd",
         "type": "github"
       },
       "original": {
@@ -402,11 +402,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1779031162,
-        "narHash": "sha256-2CpHesqLoTEI35mKZkC07D5tupiE2/EEFJcnyugiJH0=",
+        "lastModified": 1779075869,
+        "narHash": "sha256-HohogY2Ec/JyACrQzGtG2GL7D4K5b0Mg5gBBlJXW/2s=",
         "owner": "mangowm",
         "repo": "mango",
-        "rev": "6f9f4bfc3ca736dd2039a6ea47fb3664cbb43833",
+        "rev": "50e1b652b273cbf7f5bf334e9969e22daada4c7a",
         "type": "github"
       },
       "original": {
@@ -521,11 +521,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1778956518,
-        "narHash": "sha256-bbZMrzJtCqksaUBmAWSqmme/7PHEedPRAI3VmOSuP4A=",
+        "lastModified": 1779043214,
+        "narHash": "sha256-//+01ZthfM8AHz4vGEIvMpEOG6jh5nt3XGR0h3alJwk=",
         "owner": "xddxdd",
         "repo": "nix-cachyos-kernel",
-        "rev": "ae5bc7641fb4178e4d9582ea49cab201f60f7869",
+        "rev": "35ce1ffcf034260e4213442ae4e0b5820f529331",
         "type": "github"
       },
       "original": {
@@ -777,11 +777,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769182372,
-        "narHash": "sha256-I5WJ39YMaV+psYbli6rlUaiJOSoC2OwEXOF338d7zdE=",
+        "lastModified": 1779066378,
+        "narHash": "sha256-GqKhLVZTmZa68mLlCat57m54aeYPhrNAPVTLd2pGKYk=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "0e6e5ff852c442598d1ae8ca5f042947f123f798",
+        "rev": "ab477ab3a75a85a68a80d9d26a572f9de9742808",
         "type": "github"
       },
       "original": {
@@ -867,11 +867,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768985439,
-        "narHash": "sha256-qkU4r+l+UPz4dutMMRZSin64HuVZkEv9iFpu9yMWVY0=",
+        "lastModified": 1778488696,
+        "narHash": "sha256-QSWgYuZUCNUJ/cxmaq83WkcT7lHQDDfsPVgH+96kIl0=",
         "ref": "refs/heads/master",
-        "rev": "191085a8821b35680bba16ce5411fc9dbe912237",
-        "revCount": 731,
+        "rev": "7d1c9a9c6721606b129829134d6f614f015621e2",
+        "revCount": 818,
         "type": "git",
         "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
       },

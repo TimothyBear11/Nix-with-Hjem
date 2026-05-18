@@ -200,7 +200,7 @@ def init_widgets_center():
     return [
         # FIXED: Forces Fahrenheit more explicitly via ?u& format
         widget.GenPollCommand(
-            cmd='curl -s "wttr.in/Brandon,FL?u&format=%c+%t" | sed "s/+//" | tr -d "\n"',
+            cmd='curl -s "wttr.in/Palmetto,FL?u&format=%c+%t" | sed "s/+//" | tr -d "\n"',
             shell=True,
             update_interval=600,
             foreground=colors["primary"],
@@ -211,19 +211,7 @@ def init_widgets_center():
             format="%a %b %d  |  %I:%M %p",
             foreground=colors["primary"],
             **capsule(colors["inactive"]),
-        ),
-        widget.Spacer(length=6),
-        # FIXED: Added initial_timeout to allow network sync on boot
-        widget.CheckUpdates(
-            distro="Arch_checkupdates",
-            display_format="󰚰 {updates}",
-            no_update_string="󰚰 0",
-            update_interval=1800,
-            initial_timeout=15,
-            colour_no_updates=colors["primary"],
-            colour_have_updates=colors["secondary"],
-            **capsule(colors["inactive"]),
-        ),
+        ),      
     ]
 
 
