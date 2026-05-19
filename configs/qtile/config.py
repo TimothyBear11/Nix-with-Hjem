@@ -223,8 +223,6 @@ def init_widgets_right_primary():
         ),
         widget.StatusNotifier(**capsule(colors["inactive"])),
         widget.Spacer(length=6),
-        widget.Notify(**capsule(colors["inactive"])),
-        widget.Spacer(length=6),
         widget.QuickExit(
             default_text=" ⏻ ",
             countdown_format=" [{}] ",
@@ -247,7 +245,7 @@ def init_widgets_right_secondary():
             foreground=colors["secondary"],
             **capsule(colors["inactive"]),
         ),
-        widget.Spacer(length=10),
+        widget.Spacer(length=6),
         widget.Notify(**capsule(colors["inactive"])),
         widget.Spacer(length=6),
         widget.QuickExit(

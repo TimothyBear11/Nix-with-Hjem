@@ -34,6 +34,9 @@ function goodnight
     echo "ℹ️ No changes to commit."
   end
 
+  echo "Cleaning up Nix"
+  nix-clean
+
   echo "🌙 Shutting down in 10 seconds (Ctrl+C to cancel)…"
   sleep 10
   sudo systemctl poweroff
