@@ -30,7 +30,6 @@ in {
     swaybg
     cava
     mypy
-    python-lsp-server
     stubtest
     pyright
   ];
