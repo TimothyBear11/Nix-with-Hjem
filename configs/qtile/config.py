@@ -218,7 +218,7 @@ def init_widgets_center():
 def init_widgets_right_primary():
     return [
         widget.StatusNotifier(**capsule(colors["inactive"])),
-        widget.Tetris( **capsule(colors["inactive"])),
+        widget.Tetris(width=100, **capsule(colors["inactive"])),
         widget.CPU(
             format="󰍛 {load_percent}%",
             foreground=colors["secondary"],
@@ -230,8 +230,6 @@ def init_widgets_right_primary():
             foreground=colors["secondary"],
             **capsule(colors["inactive"]),
         ),
-        widget.Spacer(length=6),
-        widget.StatusNotifier(**capsule(colors["inactive"])),  # Tray
         widget.Spacer(length=6),
         widget.Notify(**capsule(colors["inactive"])),
         widget.Spacer(length=6),
