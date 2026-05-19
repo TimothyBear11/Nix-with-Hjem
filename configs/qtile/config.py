@@ -58,6 +58,9 @@ keys = [
     # --- Audio Controls ---
     Key([mod, "mod1"], "up", lazy.spawn("wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"), desc="Volume Up"),
     Key([mod, "mod1"], "down", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), desc="Volume Down"),
+    Key([mod, "mod1"], "left", lazy.spawn("fish -c music-stop"), desc="Music Stop"),
+    Key([mod, "mod1"], "right", lazy.spawn("fish -c music-next"), desc="Music Next"),
+    Key([mod, "mod1"], "space", lazy.spawn("fish -c music-play"), desc="Music Play"),
     # --- Window Controls ---
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod, "shift"], "space", lazy.window.toggle_floating()),
