@@ -218,16 +218,8 @@ def init_widgets_center():
 def init_widgets_right_primary():
     return [
         widget.StatusNotifier(**capsule(colors["inactive"])),
-        widget.Tetris(width=100, **capsule(colors["inactive"])),
-        widget.CPU(
-            format="󰍛 {load_percent}%",
-            foreground=colors["secondary"],
-            **capsule(colors["inactive"]),
-        ),
-        widget.Spacer(length=6),
-        widget.Memory(
-            format="󰘚 {MemUsed: .0f}{mm}",
-            foreground=colors["secondary"],
+        widget.Tetris(
+            cell_size=2,
             **capsule(colors["inactive"]),
         ),
         widget.Spacer(length=6),
