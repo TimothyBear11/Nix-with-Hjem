@@ -223,6 +223,7 @@ def init_widgets_right_primary():
             bar_colour=colors["secondary"],    # Change to your rice colors
             framerate=30,            # Smoothness of the bars
             hide=True,
+            **capsule(colors["inactive"]),
         ),
         widget.StatusNotifier(**capsule(colors["inactive"])),
         widget.Spacer(length=6),

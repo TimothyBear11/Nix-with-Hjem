@@ -28,6 +28,7 @@ in {
     pamixer
     kanshi
     swaybg
+    cava
   ];
 
   # 3. Map your complete configuration assets using Hjem
