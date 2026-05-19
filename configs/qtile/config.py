@@ -67,9 +67,7 @@ keys = [
     Key([mod], "q", lazy.window.kill()),
     # --- MonadTall Specifics ---
     Key([mod], "m", lazy.layout.maximize()),  # Toggle between 70% and 100%
-    Key(
-        [mod, "shift"], "Return", lazy.layout.swap_main()
-    ),  # Swap current window to the 70% slot
+    Key([mod, "shift"], "Return", lazy.layout.swap_main()),  # Swap current window to the 70% slot
     Key([mod], "equal", lazy.layout.grow()),  # Increase the 70% area
     Key([mod], "minus", lazy.layout.shrink()),  # Decrease the 70% area
     # Use your existing arrow keys to move focus between the main and stack
@@ -95,6 +93,7 @@ keys = [
     Key([mod], "p", lazy.spawn("positron")),
     # --- Scratchpad ---
     Key([mod], "t", lazy.group["scratchpad"].dropdown_toggle("term")),
+    Key([mod, "shift"], "a", lazy.group["scratchpad"].dropdown_toggle("ollama")),
 ]
 
 # ==================== WORKSPACES ====================
@@ -121,7 +120,16 @@ groups.append(
                 width=0.8,
                 x=0.1,
                 y=0.2,
-            )
+            ),
+            DropDown(
+                "ollama",
+                "kitty --class=scratchpad -e ollama run qwen",
+                opacity=0.95,
+                height=0.7,
+                width=0.8,
+                x=0.1,
+                y=0.2,
+            ),
         ],
     )
 )
