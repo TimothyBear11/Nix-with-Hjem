@@ -123,7 +123,7 @@ groups.append(
             ),
             DropDown(
                 "ollama",
-                "kitty --class=scratchpad -e ollama run qwen",
+                "kitty --class=scratchpad -e ollama run llama3.2",
                 opacity=0.95,
                 height=0.7,
                 width=0.8,
