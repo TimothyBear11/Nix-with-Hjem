@@ -5,6 +5,7 @@
     # -- Languages --
     python3
     go
+    nixd
 
     # -- IDEs --
     
