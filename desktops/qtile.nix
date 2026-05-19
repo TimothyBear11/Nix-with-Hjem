@@ -48,23 +48,8 @@ in {
 
       # 🖥️ Kanshi Display Profile Configuration
       "kanshi/config" = {
+        source = ../configs/qtile/kanshi/config;
         clobber = true;
-        text = ''
-          # Profile for your 3-monitor layout grid
-          profile {
-            # Background Wallpaper
-            exec swaybg -m fill -i ~/nix/Pictures/Wallpapers/GuardianOS.png
-
-            # OMEN 27i IPS (Main 165Hz Gaming Panel)
-            output "HDMI-A-1" enable mode 2560x1440@165 position 1920,0
-
-            # Sceptre F27 (Secondary 60Hz Panel)
-            output "DP-1" enable mode 1920x1080@60 position 0,0
-
-            # LG 27MP33 (Tertiary 60Hz Panel)
-            output "DP-2" enable mode 1920x1080@60 position 4480,0
-          }
-        '';
       };
     };
   };
