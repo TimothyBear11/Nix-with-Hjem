@@ -30,7 +30,6 @@ in {
     swaybg
     cava
     mypy
-    stubtest
     pyright
   ];
 
