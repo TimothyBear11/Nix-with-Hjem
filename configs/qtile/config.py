@@ -217,11 +217,14 @@ def init_widgets_center():
 
 def init_widgets_right_primary():
     return [
-        widget.StatusNotifier(**capsule(colors["inactive"])),
-        widget.Tetris(
-            cell_size=2,
-            **capsule(colors["inactive"]),
+        widget.Visualiser(
+            width=120,               # Set your exact capsule width
+            bars=8,                  # Number of visualizer bars
+            bar_colour=colors["secondary"],    # Change to your rice colors
+            framerate=30,            # Smoothness of the bars
+            hide=True,
         ),
+        widget.StatusNotifier(**capsule(colors["inactive"])),
         widget.Spacer(length=6),
         widget.Notify(**capsule(colors["inactive"])),
         widget.Spacer(length=6),
