@@ -54,6 +54,10 @@ keys = [
     Key([mod, "shift"], "right", lazy.layout.shuffle_right()),
     Key([mod, "shift"], "down", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "up", lazy.layout.shuffle_up()),
+    
+    # --- Audio Controls ---
+    Key([mod, "mod1"], "up", lazy.spawn("wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"), desc="Volume Up"),
+    Key([mod, "mod1"], "down", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), desc="Volume Down"),
     # --- Window Controls ---
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod, "shift"], "space", lazy.window.toggle_floating()),
