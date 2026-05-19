@@ -217,6 +217,8 @@ def init_widgets_center():
 
 def init_widgets_right_primary():
     return [
+        widget.StatusNotifier(**capsule(colors["inactive"])),
+        widget.Tetris( **capsule(colors["inactive"])),
         widget.CPU(
             format="󰍛 {load_percent}%",
             foreground=colors["secondary"],
