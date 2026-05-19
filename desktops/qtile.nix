@@ -29,6 +29,10 @@ in {
     kanshi
     swaybg
     cava
+    mypy
+    python-lsp-server
+    stubtest
+    pyright
   ];
 
   # 3. Map your complete configuration assets using Hjem
