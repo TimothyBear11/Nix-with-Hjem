@@ -268,7 +268,7 @@ def create_primary_bar():
             widget.Spacer(),
             *init_widgets_right_primary(),
         ],
-        size=32,
+        size=36,
         background=colors["bg_alt"],
         opacity=0.95,
         margin=[4, 8, 0, 8],
