@@ -218,11 +218,7 @@ def init_widgets_center():
 def init_widgets_right_primary():
     return [
         widget.Visualiser(
-            width=120,               # Set your exact capsule width
-            bars=8,                  # Number of visualizer bars
-            bar_colour=colors["secondary"],    # Change to your rice colors
-            framerate=30,            # Smoothness of the bars
-            hide=True,
+            bar_colour='#FF4D4D',
             **capsule(colors["inactive"]),
         ),
         widget.StatusNotifier(**capsule(colors["inactive"])),
