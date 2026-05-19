@@ -5,11 +5,6 @@
     directory = "/home/tbear";
 
 
-    # --- NOCTALIA ---
-    xdg.config.files."noctalia/colorschemes/Marchborn/Marchborn.json" = {
-      source = ./configs/noctalia/colorschemes/Marchborn/Marchborn.json;
-      clobber = true;
-    };
 
     # --- HJEM --- 
     xdg.config.files."helix/config.toml" = {
