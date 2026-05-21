@@ -19,11 +19,11 @@
 hl.window_rule({
     name = "pyprland-term-border",
     match = { class = "kitty-term-scratchpad" },
-    bordercolor = "rgb(ff4d4d)"
+    border_color = "rgb(ff4d4d)"
 })
 
 hl.window_rule({
     name = "pyprland-ollama-border",
     match = { class = "kitty-ollama-scratchpad" },
-    bordercolor = "rgb(ff4d4d)"
+    border_color = "rgb(ff4d4d)"
 })
