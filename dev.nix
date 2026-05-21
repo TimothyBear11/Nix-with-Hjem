@@ -10,7 +10,7 @@
     # -- IDEs --
     
     vscodium
-    jetbrains.pycharm
+    jetbrains.pycharm-oss
     zed-editor
     positron-bin
     helix
@@ -26,5 +26,8 @@
     jq
     devtoolbox
     file
+    fzf
+    ripgrep
+    
   ];
 }

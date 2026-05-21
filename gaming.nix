@@ -4,9 +4,11 @@
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
-    #package = pkgs.millennium-steam;
+    package = pkgs.millennium-steam;
   };
 
+  programs.gamemode.enable = true;
+  
   programs.gamescope = {
     enable = true;
     capSysNice = true;
@@ -23,10 +25,12 @@
   };
 
   environment.systemPackages = with pkgs; [
-   # heroic
+    heroic
     protonup-qt
-   # lutris
+    lutris
     protonplus
     mindustry-wayland
+    steam-run
+    
   ];
 }

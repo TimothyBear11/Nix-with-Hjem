@@ -11,6 +11,7 @@
     ./desktops/niri.nix
     ./desktops/mango.nix
     ./desktops/qtile.nix
+    ./desktops/gnome.nix
   ];
 
   # Core Display Server Settings
@@ -19,6 +20,8 @@
 
   # Full Desktop Environment Fallback (Using Plasma 6 via SDDM)
   services.desktopManager.plasma6.enable = true;
+
+  services.desktopManager.gnome.enable = true;
 
   # COSMIC components disabled to prioritize Hyprland/Niri workflows without resource fighting
   services.desktopManager.cosmic.enable = false;

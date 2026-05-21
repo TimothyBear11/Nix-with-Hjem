@@ -32,5 +32,12 @@
     bibata-cursors
     tmux
     socat
+    fortune
+    fd
+    pamixer
+    acpi
+    iw
+    bluez
+    libnotify
   ];
 }
