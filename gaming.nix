@@ -27,7 +27,7 @@
   environment.systemPackages = with pkgs; [
     heroic
     protonup-qt
-    lutris
+    # lutris
     protonplus
     mindustry-wayland
     steam-run
