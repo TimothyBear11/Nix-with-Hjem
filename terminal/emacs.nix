@@ -4,6 +4,7 @@
   # Install Emacs and the companion search utilities Doom relies on
   environment.systemPackages = [
     pkgs.emacs-pgtk # Wayland-native pure GTK Emacs (perfect for Hyprland)
+    pkgs.emacsPackages.doom
     pkgs.emacsPackages.vterm
     pkgs.emacsPackages.tabspaces
     pkgs.emacsPackages.rainbow-delimiters
