@@ -1,7 +1,7 @@
 -------------------
 --- KEYBINDINGS ---
 -------------------
-local fileManager = "dolphin"
+local fileManager = "thunar"
 
 -- 1. NOCTALIA IPC BINDINGS
 local noct = "noctalia-shell ipc call"

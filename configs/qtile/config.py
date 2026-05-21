@@ -5,7 +5,7 @@
 import os
 import subprocess
 
-from libqtile import bar, hook, layout
+from libqtile import bar, hook, layout, qtile
 from libqtile.backend.wayland import InputConfig
 from libqtile.config import Click, Drag, DropDown, Group, Key, Match, ScratchPad, Screen
 from libqtile.lazy import lazy
@@ -335,15 +335,24 @@ floating_layout = layout.Floating(
         Match(wm_class="fuzzel"),
         Match(wm_class="scratchpad"),
         Match(title="pinentry"),
+        Match(title="War Thunder"),
+        Match(wm_class="steam_app_236390"),  # War Thunder Steam ID
     ],
 )
 
 
-# ==================== AUTOSTART ====================
+# ==================== AUTOSTART & HOOKS ====================
 @hook.subscribe.startup_once
 def autostart():
     script = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.Popen([script])
+
+
+@hook.subscribe.client_new
+def force_fullscreen(client):
+    manual_fs = ["Steam Big Picture Mode", "War Thunder"]
+    if client.name in manual_fs:
+        qtile.call_soon(client.enable_fullscreen)
 
 
 # ==================== BEHAVIOR SETTINGS ====================
@@ -352,5 +361,6 @@ bring_front_click = False
 cursor_warp = True
 focus_on_window_activation = "focus"  # Forced focus
 auto_minimize = True
+auto_fullscreen = True
 reconfigure_screens = True
 wmname = "Qtile"
