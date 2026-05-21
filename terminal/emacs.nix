@@ -7,7 +7,7 @@
     pkgs.emacsPackages.vterm
     pkgs.emacsPackages.tabspaces
     pkgs.emacsPackages.rainbow-delimiters
-    pkgs.emacsPackages.highlight-highlight-indent-guides
+    pkgs.emacsPackages.highlight-indent-guides
     pkgs.emacsPackages.centaur-tabs
     pkgs.emacsPackages.jinx
     pkgs.emacsPackages.evil
