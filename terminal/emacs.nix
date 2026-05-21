@@ -1,33 +1,35 @@
 { config, pkgs, ... }:
 
 {
-  # Install Emacs and the companion search utilities Doom relies on
+  # 1. Install Emacs with Native Compilation and Wayland support
   environment.systemPackages = [
-    pkgs.emacs-pgtk # Wayland-native pure GTK Emacs (perfect for Hyprland)
-    
+    # emacs-pgtk provides pure GTK/Wayland support (no XWayland blurriness!)
+    pkgs.emacs-pgtk 
   ];
 
-  
-  hjem = {
-    # Ensure any preexisting dead symlinks are cleanly overwritten during activation
-    clobberByDefault = true;
+  # 2. Inject environment variables for proper Wayland/XDG handshakes
+  environment.variables = {
+    # Force Emacs to look in the modern XDG path instead of old ~/.emacs.d
+    EMACSDIR = "$HOME/.config/emacs";
+  };
 
-    users.tbear = {
-      enable = true;
-      directory = "/home/tbear";
-      user = "tbear";
+  environment.sessionVariables.PATH = [
+    "$HOME/.config/emacs/bin"
+  ];
 
-      # 1. Inject Doom's binary location directly into your user session path via POSIX profile
-      sessionVariables = {
-        PATH = "$HOME/.config/emacs/bin:$PATH";
+  # 3. Map your complete configuration assets using Hjem
+  hjem.users.tbear = {
+    xdg.config.files = {
+      # The core configuration initialization entrypoint
+      "emacs/init.el" = {
+        source = ../configs/emacs/init.el;
+        clobber = true;
       };
 
-      # 2. If you want to manage baseline files explicitly via your nixdots repo:
-      files = {
-        # This writes clean, writable configurations or template blocks right into place
-        # ".config/doom/init.el".source = ./doom-config/init.el;
-        # ".config/doom/config.el".source = ./doom-config/config.el;
-        # ".config/doom/packages.el".source = ./doom-config/packages.el;
+      # The early-init file (crucial for tuning UI speed before rendering starts)
+      "emacs/early-init.el" = {
+        source = ../configs/emacs/early-init.el;
+        clobber = true;
       };
     };
   };
