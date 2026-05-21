@@ -39,5 +39,7 @@
     iw
     bluez
     libnotify
+    yazi
+    superfile
   ];
 }
