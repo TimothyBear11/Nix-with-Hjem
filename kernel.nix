@@ -13,7 +13,7 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   boot.kernelModules = [ "tcp_bbr" ];
-  boot.kernelSysctl = {
+  boot.kernelsysctl = {
     "net.ipv4.tcp_congestion_control" = "bbr";
     "net.core.default_qdisc" = "fq";
     "net.core.wmem_max" = 1073741824;
