@@ -19,18 +19,10 @@
 
   # 3. Map your complete configuration assets using Hjem
   hjem.users.tbear = {
-    xdg.config.files = {
-      # The core configuration initialization entrypoint
-      "emacs/init.el" = {
-        source = ../configs/emacs/init.el;
-        clobber = true;
-      };
-
-      # The early-init file (crucial for tuning UI speed before rendering starts)
-      "emacs/early-init.el" = {
-        source = ../configs/emacs/early-init.el;
-        clobber = true;
-      };
-    };
+    #xdg.config.files = {
+    #  # Your custom Doom deployment settings (where your packages/configs are declared)
+    #  "doom/config.el" = { source = ../configs/doom/config.el; clobber = true; };
+    #  "doom/init.el"   = { source = ../configs/doom/init.el;   clobber = true; };
+    #  "doom/packages.el" = { source = ../configs/doom/packages.el; clobber = true; };
   };
 }
