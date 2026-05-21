@@ -15,3 +15,15 @@
 --     border_size = 0,
 --     rounding = 0
 -- })
+
+hl.window_rule({
+    name = "pyprland-term-border",
+    match = { class = "kitty-term-scratchpad" },
+    bordercolor = "rgb(ff4d4d)"
+})
+
+hl.window_rule({
+    name = "pyprland-ollama-border",
+    match = { class = "kitty-ollama-scratchpad" },
+    bordercolor = "rgb(ff4d4d)"
+})
