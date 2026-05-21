@@ -12,10 +12,10 @@
     # Ensure any preexisting dead symlinks are cleanly overwritten during activation
     clobberByDefault = true;
 
-    users.ilyamiro = {
+    users.tbear = {
       enable = true;
-      directory = "/home/ilyamiro";
-      user = "ilyamiro";
+      directory = "/home/tbear";
+      user = "tbear";
 
       # 1. Inject Doom's binary location directly into your user session path via POSIX profile
       sessionVariables = {
