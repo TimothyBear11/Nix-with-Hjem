@@ -15,7 +15,6 @@
     pkgs.emacsPackages.direnv
     pkgs.emacsPackages.magit
     pkgs.emacsPackages.lsp-mode
-    pkgs.emacsPackages.treesit-grammars
     pkgs.emacsPackages.elpaca
     pkgs.emacsPackages.general
     pkgs.emacsPackages.evil-collection
