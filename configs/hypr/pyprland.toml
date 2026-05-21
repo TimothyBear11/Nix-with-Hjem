@@ -1,0 +1,16 @@
+[pyprland]
+plugins = ["scratchpads"]
+
+[scratchpads.term]
+animation = "fromTop"
+command = "kitty --class kitty-term-scratchpad"
+class = "kitty-term-scratchpad"
+size = "80% 70%"
+margin = 50
+
+[scratchpads.ollama]
+animation = "fromTop"
+command = "kitty --class kitty-ollama-scratchpad -e ollama run llama3.2"
+class = "kitty-ollama-scratchpad"
+size = "80% 70%"
+margin = 50

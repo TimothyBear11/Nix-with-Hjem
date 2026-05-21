@@ -44,4 +44,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("[workspace 3] sleep 4 && steam")
     hl.exec_cmd("[workspace 4] sleep 2 && floorp")
     hl.exec_cmd("[workspace 5] sleep 2 && kitty -e btop")
+
+    -- Launch Pyprland daemon
+    hl.exec_cmd("pypr")
 end)

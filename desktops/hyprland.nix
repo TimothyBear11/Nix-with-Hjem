@@ -6,9 +6,14 @@
     
   };
 
+  environment.systemPackages = with pkgs; [
+    pyprland
+  ];
+
   hjem.users.tbear = {
     # Clean, explicit configuration asset mappings with working clobber keys
     xdg.config.files = {
+      "hypr/pyprland.toml"   = { source = ../configs/hypr/pyprland.toml;   clobber = true; };
       "hypr/autostart.lua"   = { source = ../configs/hypr/autostart.lua;   clobber = true; };
       "hypr/binds.lua"       = { source = ../configs/hypr/binds.lua;       clobber = true; };
       "hypr/env.lua"         = { source = ../configs/hypr/env.lua;         clobber = true; };

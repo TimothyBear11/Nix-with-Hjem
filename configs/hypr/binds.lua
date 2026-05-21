@@ -41,7 +41,8 @@ local mediaMod = "CTRL + ALT"
 -- Basic commands
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("kitty"))
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("foot"))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("pypr toggle term"))
+hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd("pypr toggle ollama"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("kate"))
