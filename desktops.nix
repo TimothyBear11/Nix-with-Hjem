@@ -23,6 +23,8 @@
 
   services.desktopManager.gnome.enable = true;
 
+  programs.ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
+  
   # COSMIC components disabled to prioritize Hyprland/Niri workflows without resource fighting
   services.desktopManager.cosmic.enable = false;
   services.displayManager.cosmic-greeter.enable = false;
