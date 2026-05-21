@@ -22,8 +22,8 @@
   services.desktopManager.plasma6.enable = true;
 
   services.desktopManager.gnome.enable = true;
-
-  programs.ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
+  programs.seahorse.enable = false;
+  
   
   # COSMIC components disabled to prioritize Hyprland/Niri workflows without resource fighting
   services.desktopManager.cosmic.enable = false;
