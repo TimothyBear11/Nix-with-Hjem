@@ -41,5 +41,6 @@
     libnotify
     yazi
     superfile
+    concord 
   ];
 }
