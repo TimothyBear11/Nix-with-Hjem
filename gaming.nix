@@ -4,7 +4,6 @@
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
-    package = pkgs.millennium-steam;
   };
 
   programs.gamemode.enable = true;
