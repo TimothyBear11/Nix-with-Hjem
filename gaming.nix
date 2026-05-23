@@ -29,7 +29,5 @@
     # lutris
     protonplus
     mindustry-wayland
-    steam-run
-    
   ];
 }
