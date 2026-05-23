@@ -22,14 +22,7 @@
       SUBSYSTEM=="usb", ATTR{idVendor}=="045e", ATTR{idProduct}=="02e0", MODE="0666"
     '';
   };
-
-  security.wrappers.bwrap = {
-    owner = "root";
-    group = "root";
-    source = "${pkgs.bubblewrap}/bin/bwrap";
-    setuid = true;
-  };
-  
+    
   environment.systemPackages = with pkgs; [
     heroic
     protonup-qt
