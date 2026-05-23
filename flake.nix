@@ -67,7 +67,7 @@
           nixpkgs.overlays = [
             app2unitOverlay
             inputs.nix-openclaw.overlays.default
-            inputs.millennium.overlays.default
+            
           ];
           nixpkgs.config.allowUnfree = true;
         }
