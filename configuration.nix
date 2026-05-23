@@ -74,14 +74,7 @@
       TimeoutStopSec = 10;
     };
   };
-
-  security.wrappers.bwrap = {
-    owner = "root";
-    group = "root";
-    capabilities = "cap_sys_admin+eip";
-    source = "${pkgs.bubblewrap}/bin/bwrap";
-  };
-
+  
   # User Account Management
   users.users.tbear = {
     isNormalUser = true;
