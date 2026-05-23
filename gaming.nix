@@ -10,7 +10,7 @@
   
   programs.gamescope = {
     enable = true;
-    capSysNice = true;
+    capSysNice = false;
   };
 
   # Controller support - just need udev rules
