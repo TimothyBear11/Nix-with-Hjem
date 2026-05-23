@@ -9,7 +9,6 @@
     gnome-weather
     gnome-control-center
     gnome-monitor-config
-    gnomeExtensions.binu
     gnomeExtensions.forge
     gnomeExtensions.gsconnect
     gnomeExtensions.desktop-clock
