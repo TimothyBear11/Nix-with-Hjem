@@ -28,8 +28,8 @@
     nix-openclaw.url = "github:openclaw/nix-openclaw";
     nix-openclaw.inputs.nixpkgs.follows = "nixpkgs";
 
-    millennium.url = "github:SteamClientHomebrew/Millennium/v2.35.0";
-    millennium.inputs.nixpkgs.follows = "nixpkgs";
+    nix-millennium.url = "github:SteamClientHomebrew/Millennium/v2.35.0";
+    nix-millennium.inputs.nixpkgs.follows = "nixpkgs";
 
     niri.url = "github:sodiboo/niri-flake";
 
