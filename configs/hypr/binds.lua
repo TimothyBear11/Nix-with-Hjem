@@ -59,7 +59,7 @@ hl.bind(shellMod .. " + A", hl.dsp.exec_cmd("fish --login -c 'shell-switch ambxs
 hl.bind(shellMod .. " + C", hl.dsp.exec_cmd("fish --login -c 'shell-switch caelestia'"))
 hl.bind(shellMod .. " + D", hl.dsp.exec_cmd("fish --login -c 'shell-switch dms'"))
 hl.bind(shellMod .. " + N", hl.dsp.exec_cmd("fish --login -c 'shell-switch noctalia'"))
-hl.bind(shellMod .. " + Z", hl.dsp.exec_cmd("fish --login -c 'wayle panel start'"))
+hl.bind(shellMod .. " + W", hl.dsp.exec_cmd("fish --login -c 'wayle panel start'"))
 
 -- Clean, Explicit Functional Layout Overlaps
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(toggleLauncher)) -- App Launcher
