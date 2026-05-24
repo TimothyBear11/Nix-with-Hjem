@@ -53,12 +53,13 @@ hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("zeditor"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("kitty -e nvim"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 
+
 -- Core Shell Switcher hotkeys (Invoking our global fish helper)
-hl.bind(shellMod .. " + A", hl.dsp.exec_cmd("fish -c 'shell-switch ambxst'"))
-hl.bind(shellMod .. " + C", hl.dsp.exec_cmd("fish -c 'shell-switch caelestia'"))
-hl.bind(shellMod .. " + D", hl.dsp.exec_cmd("fish -c 'shell-switch dms'"))
-hl.bind(shellMod .. " + N", hl.dsp.exec_cmd("fish -c 'shell-switch noctalia'"))
-hl.bind(shellMod .. " + W", hl.dsp.exec_cmd("fish -c 'shell-switch wayle'"))
+hl.bind(shellMod .. " + A", hl.dsp.exec_cmd("fish --login -c 'shell-switch ambxst'"))
+hl.bind(shellMod .. " + C", hl.dsp.exec_cmd("fish --login -c 'shell-switch caelestia'"))
+hl.bind(shellMod .. " + D", hl.dsp.exec_cmd("fish --login -c 'shell-switch dms'"))
+hl.bind(shellMod .. " + N", hl.dsp.exec_cmd("fish --login -c 'shell-switch noctalia'"))
+hl.bind(shellMod .. " + Z", hl.dsp.exec_cmd("fish --login -c 'wayle panel start'"))
 
 -- Clean, Explicit Functional Layout Overlaps
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(toggleLauncher)) -- App Launcher
