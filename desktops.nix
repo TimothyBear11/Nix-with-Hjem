@@ -58,6 +58,7 @@
     gnome-keyring       # Secure password/credential storage backend
     networkmanagerapplet # Network tray icon (nm-applet)
     cliphist            # Clipboard history backend
+    wayle
     
     # Your Favorite Cosmic Applets
     cosmic-ext-applet-weather
