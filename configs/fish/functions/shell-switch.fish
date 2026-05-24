@@ -20,7 +20,7 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
     kill -9 (pgrep -f ".quickshell-wra") 2>/dev/null
     pkill -9 -f quickshell 2>/dev/null
     sleep 0.5
-    pkill -9 -f wayle 2>/dev/null
+    pkill -9 -f wayle
     sleep 0.5
 
     # 2. Update persistent state file
