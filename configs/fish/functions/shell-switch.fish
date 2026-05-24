@@ -2,10 +2,6 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
     set -l shells ambxst caelestia dms noctalia end4 wayle
     set -l names Ambxst Caelestia DMS Noctalia End4 Wayle
 
-    set -l RED (set_color red)
-    set -l GREEN (set_color green)
-    set -l NC (set_color normal)
-
     if test (count $argv) -eq 0
         echo "Usage: shell-switch <ambxst|caelestia|dms|noctalia|end4|wayle>"
         return 1
@@ -15,12 +11,12 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
 
     set -l new_idx (contains --index $new_shell $shells)
     if test -z "$new_idx"
-        echo "$RED[ERROR]$NC Unknown shell target option: $new_shell"
+        echo (set_color red)"[ERROR]"(set_color normal)" Unknown shell target option: $new_shell"
         return 1
     end
 
     # 1. Kill active shell processes
-    echo "$GREEN[INFO]$NC Clearing existing shell interface..."
+    echo (set_color green)"[INFO]"(set_color normal)" Clearing existing shell interface..."
     kill -9 (pgrep -f ".quickshell-wra") 2>/dev/null
     pkill -9 -f quickshell 2>/dev/null
     pkill -9 -f wayle 2>/dev/null
@@ -28,7 +24,7 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
 
     # 2. Update persistent state file
     set -l state_file "$HOME/.config/hypr/.active_shell"
-    echo "$GREEN[INFO]$NC Saving shell state selection: $new_shell"
+    echo (set_color green)"[INFO]"(set_color normal)" Saving shell state selection: $new_shell"
     echo "$new_shell" >$state_file
 
     # 3. Resolve the launch command safely
@@ -49,10 +45,10 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
     end
 
     # 4. Launch the chosen shell in the background
-    echo "$GREEN[INFO]$NC Starting $new_shell..."
+    echo (set_color green)"[INFO]"(set_color normal)" Starting $new_shell..."
     fish -c "$cmd" >/dev/null 2>&1 &
     disown
     sleep 1
 
-    echo "$GREEN[INFO]$NC Switched to $names[$new_idx] successfully!"
+    echo (set_color green)"[INFO]"(set_color normal)" Switched to $names[$new_idx] successfully!"
 end
