@@ -19,6 +19,7 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
     echo (set_color green)"[INFO]"(set_color normal)" Clearing existing shell interface..."
     kill -9 (pgrep -f ".quickshell-wra") 2>/dev/null
     pkill -9 -f quickshell 2>/dev/null
+    sleep 0.5
     pkill -9 -f wayle 2>/dev/null
     sleep 0.5
 
