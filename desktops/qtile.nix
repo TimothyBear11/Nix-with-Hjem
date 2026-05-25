@@ -31,6 +31,7 @@ in {
     cava
     mypy
     pyright
+    wallust
   ];
 
   # 3. Map your complete configuration assets using Hjem
