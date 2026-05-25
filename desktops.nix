@@ -59,6 +59,7 @@
     networkmanagerapplet # Network tray icon (nm-applet)
     cliphist            # Clipboard history backend
     wayle
+    awww
     
     # Your Favorite Cosmic Applets
     cosmic-ext-applet-weather
