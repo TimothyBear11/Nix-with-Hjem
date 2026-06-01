@@ -1,13 +1,17 @@
 {
   description = "NixOS - Logic meets Magic";
 
+  
   inputs = {
+    # 1. Define your primary system package source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-
-    nixpkgs.follows = "nixos-cosmic/nixpkgs";
+    # 2. Declare the COSMIC flake and make IT follow your main nixpkgs
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    nixos-cosmic.inputs.nixpkgs.follows = "nixpkgs";
+
+    # 3. Rest of your inputs
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     
     mangowm.url = "github:mangowm/mango";
     mangowm.inputs.nixpkgs.follows = "nixpkgs";
@@ -28,13 +32,10 @@
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
-    
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    
   };
 
   outputs = inputs@{ self, nixpkgs, nixos-cosmic, ... }:
