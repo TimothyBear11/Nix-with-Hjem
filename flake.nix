@@ -2,13 +2,10 @@
   description = "NixOS - Logic meets Magic";
 
   inputs = {
-    # 1. Force the root nixpkgs to follow the cosmic-vetted commit directly
-    nixpkgs.follows = "nixos-cosmic/nixpkgs";
+    # 1. Restore clean, native root nixpkgs tracking unstable
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # 2. Define the COSMIC flake package source
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-
-    # 3. Rest of your ecosystem inputs (all safely tracking your unified nixpkgs)
+    # 2. Your ecosystem inputs (now cleanly tracking native nixpkgs)
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     
     mangowm.url = "github:mangowm/mango";
@@ -36,7 +33,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-cosmic, ... }:
+  outputs = inputs@{ self, nixpkgs, ... }:
   let
     app2unitOverlay = final: prev: {
       app2unit = prev.app2unit.overrideAttrs (old: {
@@ -45,20 +42,20 @@
     };
   in {
     nixosConfigurations.nix-den = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; }; 
+      
       modules = [
         {
           nixpkgs.hostPlatform = "x86_64-linux";
-
           _module.args = { inherit inputs; };
-
+          
+          # We can drop the cosmic cachix keys completely since standard 
+          # nixpkgs builds will evaluate or pull standard system channels.
           nix.settings = {
-            substituters = [ "https://cosmic.cachix.org/" ];
-            # Note: Updated to include the full key string from upstream docs
-            trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            substituters = [ "https://cache.nixos.org/" ];
           };
         }
         ./configuration.nix
-        nixos-cosmic.nixosModules.default
         inputs.mangowm.nixosModules.mango
         inputs.dms.nixosModules.default
         inputs.niri.nixosModules.niri

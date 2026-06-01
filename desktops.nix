@@ -12,6 +12,7 @@
     ./desktops/mango.nix
     ./desktops/qtile.nix
     ./desktops/gnome.nix
+    ./desktops/cosmic.nix
   ];
 
   # Core Display Server Settings
@@ -24,12 +25,7 @@
 
   services.desktopManager.gnome.enable = true;
   programs.seahorse.enable = false;
-  
-  
-  # COSMIC components disabled to prioritize Hyprland/Niri workflows without resource fighting
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
-  
+    
   programs.dconf.enable = true;
 
   # XDG Portals Configuration (Strict routing to prevent desktop environment loops)
@@ -62,11 +58,7 @@
     wayle
     awww
     
-    # Your Favorite Cosmic Applets
-    cosmic-ext-applet-weather
-    cosmic-ext-applet-minimon
-    cosmic-ext-applet-caffeine
-  ];
+    ];
 
   # Session Variables for Unified Theme Handshakes
   environment.sessionVariables = {
