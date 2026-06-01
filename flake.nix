@@ -48,6 +48,9 @@
       modules = [
         {
           nixpkgs.hostPlatform = "x86_64-linux";
+
+          _module.args = { inherit inputs; };
+
           nix.settings = {
             substituters = [ "https://cosmic.cachix.org/" ];
             # Note: Updated to include the full key string from upstream docs
