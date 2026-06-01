@@ -11,5 +11,6 @@
     cosmic-ext-applet-weather
     cosmic-ext-applet-minimon
     cosmic-ext-applet-caffeine
+    cosmic-ext-applet-sysinfo
     ];
 }

@@ -32,6 +32,8 @@
     loadModels = [
       "llama3.2"
       "qwen2.5-coder:7b"
+      "gemma3:12b"
+      "qwen3.5:9b"
     ];
   };
 }
