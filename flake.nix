@@ -3,14 +3,12 @@
 
   
   inputs = {
-    # 1. Define your primary system package source
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # 2. Declare the COSMIC flake and make IT follow your main nixpkgs
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-    nixos-cosmic.inputs.nixpkgs.follows = "nixpkgs";
-
-    # 3. Rest of your inputs
+    
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.follows = "nixos-cosmic/nixpkgs";
+    
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     
     mangowm.url = "github:mangowm/mango";
@@ -40,7 +38,8 @@
 
   outputs = inputs@{ self, nixpkgs, nixos-cosmic, ... }:
   let
-    system = "x86_64-linux";
+    # You can keep this local variable or remove it if not used elsewhere
+    system = "x86_64-linux"; 
 
     app2unitOverlay = final: prev: {
       app2unit = prev.app2unit.overrideAttrs (old: {
@@ -49,13 +48,13 @@
     };
   in {
     nixosConfigurations.nix-den = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
+      # Pass the system cleanly via the modern nixpkgs host platform definition
       modules = [
         {
+          nixpkgs.hostPlatform = "x86_64-linux"; # <-- Explicitly sets the modern platform format
           nix.settings = {
             substituters = [ "https://cosmic.cachix.org/" ];
-            trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBeh"];
+            trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBeh" ];
           };
         }
         ./configuration.nix
@@ -66,10 +65,7 @@
         inputs.hjem.nixosModules.default
 
         {
-          nixpkgs.overlays = [
-            app2unitOverlay
-                        
-          ];
+          nixpkgs.overlays = [ app2unitOverlay ];
           nixpkgs.config.allowUnfree = true;
         }
       ];
