@@ -5,10 +5,12 @@
   inputs = {
 
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-    
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.follows = "nixos-cosmic/nixpkgs";
-    
+   
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+      follows = "nixos-cosmic/nixpkgs";
+    };        
+
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     
     mangowm.url = "github:mangowm/mango";
