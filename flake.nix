@@ -1,16 +1,14 @@
 {
   description = "NixOS - Logic meets Magic";
 
-  
   inputs = {
+    # 1. Force the root nixpkgs to follow the cosmic-vetted commit directly
+    nixpkgs.follows = "nixos-cosmic/nixpkgs";
 
+    # 2. Define the COSMIC flake package source
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-   
-    nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
-      follows = "nixos-cosmic/nixpkgs";
-    };        
 
+    # 3. Rest of your ecosystem inputs (all safely tracking your unified nixpkgs)
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     
     mangowm.url = "github:mangowm/mango";
@@ -40,9 +38,6 @@
 
   outputs = inputs@{ self, nixpkgs, nixos-cosmic, ... }:
   let
-    # You can keep this local variable or remove it if not used elsewhere
-    system = "x86_64-linux"; 
-
     app2unitOverlay = final: prev: {
       app2unit = prev.app2unit.overrideAttrs (old: {
         postPatch = "";
@@ -50,13 +45,13 @@
     };
   in {
     nixosConfigurations.nix-den = nixpkgs.lib.nixosSystem {
-      # Pass the system cleanly via the modern nixpkgs host platform definition
       modules = [
         {
-          nixpkgs.hostPlatform = "x86_64-linux"; # <-- Explicitly sets the modern platform format
+          nixpkgs.hostPlatform = "x86_64-linux";
           nix.settings = {
             substituters = [ "https://cosmic.cachix.org/" ];
-            trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBeh" ];
+            # Note: Updated to include the full key string from upstream docs
+            trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
           };
         }
         ./configuration.nix
