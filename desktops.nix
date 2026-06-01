@@ -20,14 +20,15 @@
 
   # Full Desktop Environment Fallback (Using Plasma 6 via SDDM)
   services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = false;
 
   services.desktopManager.gnome.enable = true;
   programs.seahorse.enable = false;
   
   
   # COSMIC components disabled to prioritize Hyprland/Niri workflows without resource fighting
-  services.desktopManager.cosmic.enable = false;
-  services.displayManager.cosmic-greeter.enable = false;
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
   
   programs.dconf.enable = true;
 
