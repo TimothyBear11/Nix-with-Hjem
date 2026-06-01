@@ -6,14 +6,14 @@
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
+    nixpkgs.follows = "nixos-cosmic/nixpkgs";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    
     mangowm.url = "github:mangowm/mango";
     mangowm.inputs.nixpkgs.follows = "nixpkgs";
 
     ambxst.url = "github:Axenide/Ambxst";
     ambxst.inputs.nixpkgs.follows = "nixpkgs";
-
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     caelestia-shell.url = "github:caelestia-dots/shell";
     caelestia-cli.url = "github:caelestia-dots/cli";
@@ -25,15 +25,10 @@
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-openclaw.url = "github:openclaw/nix-openclaw";
-    nix-openclaw.inputs.nixpkgs.follows = "nixpkgs";
-    
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
-    illogical-flake.url = "github:soymou/illogical-flake";
-    illogical-flake.inputs.nixpkgs.follows = "nixpkgs";
-
+    
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,7 +37,7 @@
     
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-cosmic, ... }:
   let
     system = "x86_64-linux";
 
@@ -56,8 +51,14 @@
       inherit system;
       specialArgs = { inherit inputs; };
       modules = [
+        {
+          nix.settings = {
+            substituters = [ "https://cosmic.cachix.org/" ];
+            trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBeh"];
+          };
+        }
         ./configuration.nix
-
+        nixos-cosmic.nixosModules.default
         inputs.mangowm.nixosModules.mango
         inputs.dms.nixosModules.default
         inputs.niri.nixosModules.niri
