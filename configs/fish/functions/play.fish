@@ -23,9 +23,8 @@ function play
     # Launch in a detached tmux session named 'music'
     # --shuffle: Randomizes the playlist
     # --input-ipc-server: Keeps your music-peek function working
-    tmux new-session -d -s music "mpv --ao=pulse --no-video --shuffle --input-ipc-server=/tmp/mpvsocket \"$url\""
-
+    # tmux new-session -d -s music "mpv --mpris=yes --ao=pulse --no-video --shuffle --input-ipc-server=/tmp/mpvsocket \"$url\""
+    tmux new-session -d -s music "mpv --mpris=yes --script-opts=mpris-player=GuardianOS --ao=pulse --no-video --shuffle --input-ipc-server=/tmp/mpvsocket \"$url\""
     echo "󰎈 Guardian Music Engine: Shuffling '$argv[1]' in the background..."
-
 
 end

@@ -20,7 +20,7 @@
     fastfetch
     gh
     eza
-    
+    mpv-mpris
   ];
 }
 
