@@ -28,15 +28,15 @@ if status is-interactive
     # --- Fastfetch (System Info) ---
     if type -q fastfetch
         fastfetch --config "$HOME/.config/fastfetch/empty_config.jsonc" \
-                  --logo "$HOME/nix/Pictures/newlogo1.png" \
-                  --logo-type auto \
-                  --logo-width 35 \
-                  --logo-height 20
+            --logo "$HOME/nix/Pictures/newlogo1.png" \
+            --logo-type auto \
+            --logo-width 35 \
+            --logo-height 20
     end
 
     # --- Load Custom Functions ---
-    if test -d "$HOME/.config/fish/functions_extra"
-        for f in $HOME/.config/fish/functions_extra/*.fish
+    if test -d "$HOME/nix/configs/fish/functions_extra"
+        for f in $HOME/nix/configs/fish/functions_extra/*.fish
             source $f
         end
     end
@@ -77,14 +77,14 @@ if status is-interactive
     # Using 'set -g' (global) instead of 'set -u' (universal)
     # This prevents Fish 4.3 from trying to write to the read-only nix store.
     set -g tide_left_prompt_frame_color 34424A # Muted Slate
-    set -g tide_character_color 7FFFD4         # Aquamarine (Success)
+    set -g tide_character_color 7FFFD4 # Aquamarine (Success)
     set -g tide_character_color_failure FF4D4D # Bloodstone (Failure)
-    set -g tide_os_color 7FFFD4                # Aquamarine
-    set -g tide_context_color_root FF4D4D      # Bloodstone
-    set -g tide_context_color_user D3E0E2      # Icy White
-    set -g tide_pwd_color_dirs 7FFFD4          # Aquamarine
-    set -g tide_pwd_color_anchors 7FFFD4       # Bold Aquamarine
-    set -g tide_git_color_branch FFD700        # Gold
+    set -g tide_os_color 7FFFD4 # Aquamarine
+    set -g tide_context_color_root FF4D4D # Bloodstone
+    set -g tide_context_color_user D3E0E2 # Icy White
+    set -g tide_pwd_color_dirs 7FFFD4 # Aquamarine
+    set -g tide_pwd_color_anchors 7FFFD4 # Bold Aquamarine
+    set -g tide_git_color_branch FFD700 # Gold
 end
 
 # Load envman if it exists

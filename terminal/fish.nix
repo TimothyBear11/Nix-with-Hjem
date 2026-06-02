@@ -42,5 +42,6 @@
     xdg.config.files."fish/functions/play.fish".source            = ../configs/fish/functions/play.fish;
     xdg.config.files."fish/functions/shell-switch.fish".source    = ../configs/fish/functions/shell-switch.fish;
     xdg.config.files."fish/functions/gitnrs.fish".source          = ../configs/fish/functions/gitnrs.fish;
+    xdg.config.files."fish/functions/music-import.fish".source = ../configs/fish/functions/music-import.fish;
   };
 }
