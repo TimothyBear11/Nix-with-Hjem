@@ -68,11 +68,14 @@ hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(toggleSettings)) -- System Configura
 hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(toggleClip)) -- Clipboard History Panel
 hl.bind(mainMod .. " + F4", hl.dsp.exec_cmd(toggleSession)) -- Power/Session Menu
 
--- Music controls (Shifted to CTRL + ALT cluster to prevent focus layout overlap)
-hl.bind(mediaMod .. " + Up", hl.dsp.exec_cmd("music-play"))
-hl.bind(mediaMod .. " + Down", hl.dsp.exec_cmd("music-pause"))
-hl.bind(mediaMod .. " + Left", hl.dsp.exec_cmd("music-prev"))
-hl.bind(mediaMod .. " + Right", hl.dsp.exec_cmd("music-next"))
+hl.bind(mediaMod .. " + Up", hl.dsp.exec_cmd("fish --login -c 'music-play'"))
+hl.bind(mediaMod .. " + Down", hl.dsp.exec_cmd("fish --login -c 'music-pause'"))
+hl.bind(mediaMod .. " + Left", hl.dsp.exec_cmd("fish --login -c 'music-prev'"))
+hl.bind(mediaMod .. " + Right", hl.dsp.exec_cmd("fish --login -c 'music-next'"))
+hl.bind(mediaMod .. " + H", hl.dsp.exec_cmd("fish --login -c 'play hurt'"))
+hl.bind(mediaMod .. " + R", hl.dsp.exec_cmd("fish --login -c 'play relax'"))
+hl.bind(mediaMod .. " + P", hl.dsp.exec_cmd("fish --login -c 'play piano'"))
+hl.bind(mediaMod .. " + C", hl.dsp.exec_cmd("fish --login -c 'play chill'"))
 
 -- Move focus
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "l" }))
