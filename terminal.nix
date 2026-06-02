@@ -20,6 +20,7 @@
     fastfetch
     gh
     eza
+    mpv
     mpvScripts.mpris
     ];
 }

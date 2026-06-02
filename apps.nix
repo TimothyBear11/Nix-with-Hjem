@@ -21,7 +21,6 @@
     apostrophe 
     obsidian
     ani-cli
-    mpv
     yt-dlp
     ffmpeg
     ffmpegthumbnailer
