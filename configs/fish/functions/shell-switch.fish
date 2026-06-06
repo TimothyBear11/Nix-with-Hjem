@@ -1,4 +1,4 @@
-# ~/.config/hypr/scripts/shell-switcher.fish
+#!/usr/bin/env fish
 
 set -l selection (printf "ambxst\ncaelestia\ndms\nnoctalia\nwayle" | fuzzel --dmenu -p "Select Shell: ")
 if test -z "$selection"
