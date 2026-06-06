@@ -77,7 +77,7 @@
   users.users.tbear = {
     isNormalUser = true;
     description = "Timothy Bear";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
     shell = pkgs.fish;
   };
 

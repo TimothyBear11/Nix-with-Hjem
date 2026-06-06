@@ -20,5 +20,7 @@
     "net.core.rmem_max" = 1073741824;
     "net.ipv4.tcp_rmem" = "4096 87380 1073741824";
     "net.ipv4.tcp_wmem" = "4096 87380 1073741824";
+    "fs.inotify.max_user_watches" = 524288;
+    "fs.inotify.max_user_instances" = 8192;
   };
 }
