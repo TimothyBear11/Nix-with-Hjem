@@ -71,8 +71,16 @@ hl.bind(shellMod .. " + D", hl.dsp.exec_cmd("fish --login -c 'shell-switch dms'"
 hl.bind(shellMod .. " + N", hl.dsp.exec_cmd("fish --login -c 'shell-switch noctalia'"))
 hl.bind(shellMod .. " + V", hl.dsp.exec_cmd("fish --login -c 'shell-switch noctaliav5'"))
 hl.bind(shellMod .. " + W", hl.dsp.exec_cmd("pkill wayle && wayle panel start"))
-hl.bind(shellMod .. " + S", hl.dsp.exec_cmd("fish --login -c 'shell-switch-simple'"))
 
+local function launch_switcher()
+    -- We use 'os.execute' to run the script in the background 
+    -- 'os.execute' is a standard Lua function that ignores the HL wrapper
+    os.execute("nohup /run/current-system/sw/bin/fish /home/tbear/nix/configs/fish/functions/shell-switch-simple.fish > /dev/null 2>&1 &")
+end
+
+-- 2. Bind the wrapper function directly
+-- Since 'launch_switcher' is a valid Lua function, hl.bind will accept it!
+hl.bind(shellMod .. " + S", launch_switcher)
 
 -- Clean, Explicit Functional Layout Overlaps
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(toggleLauncher)) -- App Launcher
