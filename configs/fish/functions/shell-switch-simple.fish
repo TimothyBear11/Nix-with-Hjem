@@ -9,10 +9,7 @@ end
 # 2. Robust Kill Logic 
 # Instead of guessing binary names, we kill anything that 'looks' like a shell
 pkill -9 -f quickshell
-pkill -9 -f noctalia-shell
-pkill -9 -f ambxst
 pkill -9 -f wayle
-pkill -9 -f dms
 pkill -9 -f noctalia
 
 # 3. Launch Logic
