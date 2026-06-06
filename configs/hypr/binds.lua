@@ -73,6 +73,7 @@ hl.bind(shellMod .. " + V", hl.dsp.exec_cmd("fish --login -c 'shell-switch nocta
 hl.bind(shellMod .. " + W", hl.dsp.exec_cmd("pkill wayle && wayle panel start"))
 hl.bind(shellMod .. " + S", "exec nohup /run/current-system/sw/bin/fish /home/tbear/nix/configs/fish/functions/shell-switch-simple.fish > /dev/null 2>&1 &")
 
+
 -- Clean, Explicit Functional Layout Overlaps
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(toggleLauncher)) -- App Launcher
 hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd(toggleCC)) -- Control Center Panel
