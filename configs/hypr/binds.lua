@@ -71,7 +71,7 @@ hl.bind(shellMod .. " + D", hl.dsp.exec_cmd("fish --login -c 'shell-switch dms'"
 hl.bind(shellMod .. " + N", hl.dsp.exec_cmd("fish --login -c 'shell-switch noctalia'"))
 hl.bind(shellMod .. " + V", hl.dsp.exec_cmd("fish --login -c 'shell-switch noctaliav5'"))
 hl.bind(shellMod .. " + W", hl.dsp.exec_cmd("pkill wayle && wayle panel start"))
-hl.bind(shellMod .. " + S", "exec nohup /run/current-system/sw/bin/fish /home/tbear/nix/configs/fish/functions/shell-switch-simple.fish > /dev/null 2>&1 &")
+hl.bind(shellMod .. " + S", hl.dsp.exec_cmd("fish --login -c 'shell-switch-simple'"))
 
 
 -- Clean, Explicit Functional Layout Overlaps
