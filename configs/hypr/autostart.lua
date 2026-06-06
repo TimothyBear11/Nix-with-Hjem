@@ -33,12 +33,16 @@ hl.on("hyprland.start", function()
         hl.exec_cmd("caelestia-shell -d")
     elseif active_shell == "dms" then
         hl.exec_cmd("dms run")
-    elseif active_shell == "end4" then
-        hl.exec_cmd("qs -c illogical-impulse")
+    elseif active_shell == "wayle" then
+        hl.exec_cmd("wayle shell & sleep 1 && wayle panel start")
+    elseif active_shell == "noctalia" then
+        hl.exec_cmd("noctalia-shell")
+    elseif active_shell == "noctaliav5" then
+        -- Added the Noctaliav5 entry
+        hl.exec_cmd("noctalia") 
     else
-        hl.exec_cmd("noctalia-shell") -- Trusty Marchborn default signature
+        hl.exec_cmd("noctalia-shell")
     end
-
     -- Workspace-Specific Favorites
     hl.exec_cmd("[workspace 2] sleep 3 && zed")
     hl.exec_cmd("[workspace 3] sleep 4 && steam")
