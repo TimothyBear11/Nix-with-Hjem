@@ -70,7 +70,8 @@ hl.bind(shellMod .. " + C", hl.dsp.exec_cmd("fish --login -c 'shell-switch caele
 hl.bind(shellMod .. " + D", hl.dsp.exec_cmd("fish --login -c 'shell-switch dms'"))
 hl.bind(shellMod .. " + N", hl.dsp.exec_cmd("fish --login -c 'shell-switch noctalia'"))
 hl.bind(shellMod .. " + V", hl.dsp.exec_cmd("fish --login -c 'shell-switch noctaliav5'"))
-hl.bind(shellMod .. " + W", hl.dsp.exec_cmd("fish --login -c 'shell-switch wayle'"))
+hl.bind(shellMod .. " + W", hl.dsp.exec_cmd("fish --login -c 'shell-switch wayle' > /tmp/shell-switch.log 2>&1"))
+hl.bind("MOD + ALT + T", hl.dsp.exec_cmd("pkill -9 -f quickshell; pkill -9 -x noctalia; pkill -9 -x wayle; wayle shell & sleep 0.5; wayle panel start"))
 
 -- Clean, Explicit Functional Layout Overlaps
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(toggleLauncher)) -- App Launcher

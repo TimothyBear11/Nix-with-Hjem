@@ -15,11 +15,12 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
         return 1
     end
 
-    # 1. Kill active shell processes (including the new C++ Noctalia binary)
+    # 1. Kill active shell processes 
     echo (set_color green)"[INFO]"(set_color normal)" Clearing existing shell interface..."
     kill -9 (pgrep -f ".quickshell-wra") 2>/dev/null
     pkill -9 -f quickshell 2>/dev/null
     pkill -9 -x noctalia 2>/dev/null
+    pkill -9 -f noctalia-shell 2>/dev/null
     pkill -9 -f wayle 2>/dev/null
     sleep 0.5
 
@@ -38,17 +39,16 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
         case dms
             set cmd "dms run"
         case noctalia
-            set cmd "qs -c noctalia-shell"
+            set cmd noctalia-shell
         case noctaliav5
             set cmd noctalia
         case wayle
-            set cmd "wayle panel start"
+            set cmd "wayle shell & sleep 0.5 && wayle panel start"
     end
 
-    # 4. Launch the chosen shell in the background
+    # 4. Launch via Hyprland, but wrapped in Fish so the environment variables match your terminal!
     echo (set_color green)"[INFO]"(set_color normal)" Starting $new_shell..."
-    fish -c "$cmd" >/dev/null 2>&1 &
-    disown
+    hyprctl dispatch exec "fish -c '$cmd'" >/dev/null 2>&1
     sleep 1
 
     echo (set_color green)"[INFO]"(set_color normal)" Switched to $names[$new_idx] successfully!"
