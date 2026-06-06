@@ -1,5 +1,4 @@
 #!/usr/bin/env fish
-# ~/nix/configs/fish/functions/shell-switch-simple.fish
 
 # 1. Selection
 set -l selection (printf "ambxst\ncaelestia\ndms\nnoctalia\nnoctaliav5\nwayle" | fuzzel --dmenu -p "Select Shell: " | string trim)
@@ -7,38 +6,31 @@ if test -z "$selection"
     exit 0
 end
 
-# 2. Kill Logic
-# Quickshell-based shells (ambxst, caelestia, dms, noctalia)
-pkill -9 -x quickshell 2>/dev/null
-# Standalone shells
-pkill -9 -x wayle 2>/dev/null
-pkill -9 -x noctaliav5 2>/dev/null # Or your specific binary name for v5
+# 2. Robust Kill Logic 
+# Instead of guessing binary names, we kill anything that 'looks' like a shell
+pkill -9 -f quickshell
+pkill -9 -f noctalia-shell
+pkill -9 -f ambxst
+pkill -9 -f wayle
+pkill -9 -f dms
+pkill -9 -f noctalia
 
 # 3. Launch Logic
 switch $selection
     case ambxst
-        ambxst &
-        disown
+        setsid ambxst >/dev/null 2>&1 &
     case caelestia
-        caelestia-shell -d &
-        disown
+        setsid caelestia-shell -d >/dev/null 2>&1 &
     case dms
-        dms run &
-        disown
+        setsid dms run >/dev/null 2>&1 &
     case noctalia
-        noctalia-shell &
-        disown
+        setsid noctalia-shell >/dev/null 2>&1 &
     case noctaliav5
-        noctalia &
-        disown
+        setsid noctalia >/dev/null 2>&1 &
     case wayle
-        wayle shell &
-        disown
+        setsid wayle shell >/dev/null 2>&1 &
         sleep 0.5
-        wayle panel start &
-        disown
+        setsid wayle panel start >/dev/null 2>&1 &
 end
 
-# 4. Final Clean Exit
-exec >/dev/null 2>&1
 exit 0
