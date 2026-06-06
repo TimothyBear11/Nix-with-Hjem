@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.noctaliav5.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   hjem.users.tbear = {
