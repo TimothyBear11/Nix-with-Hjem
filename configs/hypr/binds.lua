@@ -72,7 +72,7 @@ hl.bind(shellMod .. " + N", hl.dsp.exec_cmd("fish --login -c 'shell-switch nocta
 hl.bind(shellMod .. " + V", hl.dsp.exec_cmd("fish --login -c 'shell-switch noctaliav5'"))
 hl.bind(shellMod .. " + W", hl.dsp.exec_cmd("pkill wayle && wayle panel start"))
 
-hl.bind(shellMod .. " + S", hl.dsp.exec_cmd("fish --login -c 'shell-switcher'"))
+hl.bind(shellMod .. " + S", hl.dsp.exec_cmd("fish /home/tbear/nix/configs/fish/functions/shell-switcher.fish"))
 
 -- Clean, Explicit Functional Layout Overlaps
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(toggleLauncher)) -- App Launcher
