@@ -19,13 +19,13 @@
   hjem.users.tbear = {
     # v5 config (Default path: ~/.config/noctalia) -> palletts
     xdg.config.files."noctalia/palletts/Marchborn.json" = {
-      source = ../configs/noctalia/palletts/Marchborn/Marchborn.json; 
+      source = ../configs/noctalia/colorschemes/Marchborn/Marchborn.json; 
       clobber = true;
     };
 
     # v4 config (Isolated path: ~/.config/noctalia4_xdg/noctalia) -> colorschemes
     xdg.config.files."noctalia4_xdg/noctalia/colorschemes/Marchborn/Marchborn.json" = {
-      source = ../configs/noctalia/palletts/Marchborn/Marchborn.json; 
+      source = ../configs/noctalia/colorschemes/Marchborn/Marchborn.json; 
       clobber = true; 
     };
 
