@@ -7,7 +7,7 @@ switch $selection
     case ambxst
         setsid ambxst >/dev/null 2>&1 &
     case caelestia
-        setsid caelestia-shell -d >/dev/null 2>&1 &
+        setsid caelestia shell >/dev/null 2>&1 &
     case dms
         setsid dms run >/dev/null 2>&1 &
     case noctalia
