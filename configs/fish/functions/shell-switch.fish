@@ -1,9 +1,9 @@
-function shell-switch --description "Toggle visual shell desktops in Hyprland (Lua Edition)"
-    set -l shells ambxst caelestia dms noctalia end4 wayle
-    set -l names Ambxst Caelestia DMS Noctalia End4 Wayle
+function shell-switch --description "Toggle visual shell desktops in Hyprland (Lua/C++ Edition)"
+    set -l shells ambxst caelestia dms noctalia noctaliav5 wayle
+    set -l names Ambxst Caelestia DMS Noctalia Noctaliav5 Wayle
 
     if test (count $argv) -eq 0
-        echo "Usage: shell-switch <ambxst|caelestia|dms|noctalia|end4|wayle>"
+        echo "Usage: shell-switch <ambxst|caelestia|dms|noctalia|noctaliav5|wayle>"
         return 1
     end
 
@@ -15,12 +15,12 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
         return 1
     end
 
-    # 1. Kill active shell processes
+    # 1. Kill active shell processes (including the new C++ Noctalia binary)
     echo (set_color green)"[INFO]"(set_color normal)" Clearing existing shell interface..."
     kill -9 (pgrep -f ".quickshell-wra") 2>/dev/null
     pkill -9 -f quickshell 2>/dev/null
-    sleep 0.5
-    pkill -9 -f wayle
+    pkill -9 -x noctalia 2>/dev/null
+    pkill -9 -f wayle 2>/dev/null
     sleep 0.5
 
     # 2. Update persistent state file
@@ -38,9 +38,9 @@ function shell-switch --description "Toggle visual shell desktops in Hyprland (L
         case dms
             set cmd "dms run"
         case noctalia
-            set cmd noctalia-shell
-        case end4
-            set cmd "qs -c illogical-impulse"
+            set cmd "qs -c noctalia-shell"
+        case noctaliav5
+            set cmd noctalia
         case wayle
             set cmd "wayle panel start"
     end

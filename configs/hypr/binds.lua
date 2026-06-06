@@ -11,7 +11,16 @@ local noctSettings = noct .. " settings toggle"
 local noctClip = noct .. " launcher clipboard"
 local noctSession = noct .. " sessionMenu toggle"
 
--- 2. CAELESTIA IPC BINDINGS (Now with escaped string arguments for Quickshell)
+
+-- 2. NOCTALIA v5 (C++) IPC BINDINGS
+-- Note: v5 uses the new 'noctalia msg' syntax
+local noct5 = "noctalia msg toggle"
+local noct5Launcher = noct5 .. " launcher"
+local noct5CC = noct5 .. " controlCenter"
+local noct5Settings = noct5 .. " settings"
+local noct5Clip = noct5 .. " clipboard"
+local noct5Session = noct5 .. " sessionMenu"
+-- 3. CAELESTIA IPC BINDINGS (Now with escaped string arguments for Quickshell)
 local cael = "caelestia shell"
 local caelLauncher = cael .. " drawers toggle 'launcher'"
 local caelCC = cael .. " drawers toggle 'cc'"
@@ -19,7 +28,7 @@ local caelSettings = cael .. " drawers toggle 'settings'"
 local caelClip = cael .. " picker openClip"
 local caelSession = cael .. " drawers toggle 'session'"
 
--- 3. DMS IPC BINDINGS
+-- 4. DMS IPC BINDINGS
 local dms = "dms ipc call"
 local dmsLauncher = dms .. " launcher toggle"
 local dmsCC = dms .. " control-center toggle"
@@ -27,12 +36,13 @@ local dmsSettings = dms .. " settings toggle"
 local dmsClip = dms .. " clipboard toggle"
 local dmsSession = dms .. " powermenu toggle"
 
+
 -- Combined Universal Macro Command Pipelines
-local toggleLauncher = string.format("%s ; %s ; %s", noctLauncher, caelLauncher, dmsLauncher)
-local toggleCC = string.format("%s ; %s ; %s", noctCC, caelCC, dmsCC)
-local toggleSettings = string.format("%s ; %s ; %s", noctSettings, caelSettings, dmsSettings)
-local toggleClip = string.format("%s ; %s ; %s", noctClip, caelClip, dmsClip)
-local toggleSession = string.format("%s ; %s ; %s", noctSession, caelSession, dmsSession)
+local toggleLauncher = string.format("%s ; %s ; %s ; %s", noctLauncher, noct5Launcher, caelLauncher, dmsLauncher)
+local toggleCC = string.format("%s ; %s ; %s ; %s", noctCC, noct5CC, caelCC, dmsCC)
+local toggleSettings = string.format("%s ; %s ; %s ; %s", noctSettings, noct5Settings, caelSettings, dmsSettings)
+local toggleClip = string.format("%s ; %s ; %s ; %s", noctClip, noct5Clip, caelClip, dmsClip)
+local toggleSession = string.format("%s ; %s ; %s ; %s", noctSession, noct5Session, caelSession, dmsSession)
 
 local mainMod = "SUPER"
 local shellMod = "SUPER + ALT"
@@ -59,7 +69,8 @@ hl.bind(shellMod .. " + A", hl.dsp.exec_cmd("fish --login -c 'shell-switch ambxs
 hl.bind(shellMod .. " + C", hl.dsp.exec_cmd("fish --login -c 'shell-switch caelestia'"))
 hl.bind(shellMod .. " + D", hl.dsp.exec_cmd("fish --login -c 'shell-switch dms'"))
 hl.bind(shellMod .. " + N", hl.dsp.exec_cmd("fish --login -c 'shell-switch noctalia'"))
-hl.bind(shellMod .. " + W", hl.dsp.exec_cmd("fish --login -c 'wayle panel start'"))
+hl.bind(shellMod .. " + V", hl.dsp.exec_cmd("fish --login -c 'shell-switch noctaliav5'"))
+hl.bind(shellMod .. " + W", hl.dsp.exec_cmd("fish --login -c 'shell-switch wayle'"))
 
 -- Clean, Explicit Functional Layout Overlaps
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(toggleLauncher)) -- App Launcher
