@@ -1,24 +1,30 @@
 #!/usr/bin/env fish
-# ~/.config/hypr/scripts/shell-switcher.fish
 
-# 1. Force the selection into a variable, strip whitespace
 set -l selection (printf "ambxst\ncaelestia\ndms\nnoctalia\nnoctaliav5\nwayle" | fuzzel --dmenu -p "Select Shell: " | string trim)
-
-# If they hit ESC, just exit
 if test -z "$selection"
     exit 0
 end
 
-# 2. Kill the previous shell session variants
-# We use pkill -f to catch any backgrounded python/lua/qml wrappers
-pkill -9 -f noctalia
-pkill -9 -f wayle
-pkill -9 -f ambxst
-pkill -9 -f dms
-pkill -9 -f caelestia
+# 1. Kill old ones
+pkill -9 quickshell
+pkill -9 -x wayle
+pkill -9 -x noctalia
 
-# 3. Write the selection to the state file
+# 2. Update state file
 echo "$selection" >/home/tbear/.config/hypr/.active_shell
 
-# 4. Trigger the reload (absolute path)
-/run/current-system/sw/bin/hyprctl reload
+# 3. DIRECT LAUNCH (Bypass reload for the shell itself)
+switch "$selection"
+    case ambxst
+        hyprctl dispatch exec ambxst
+    case caelestia
+        hyprctl dispatch exec "caelestia-shell -d"
+    case dms
+        hyprctl dispatch exec "dms run"
+    case wayle
+        hyprctl dispatch exec "wayle panel start"
+    case noctalia
+        hyprctl dispatch exec noctalia-shell
+    case noctaliav5
+        hyprctl dispatch exec noctalia
+end
