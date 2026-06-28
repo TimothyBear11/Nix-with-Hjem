@@ -8,7 +8,7 @@
   environment.systemPackages = with pkgs; [
     # Wrap mpv so it natively includes the MPRIS plugin system-wide
     (mpv.override {
-      scripts = [ mpvScripts.mpv-mpris ];
+      scripts = [ mpvScripts.mpris ]; # Fixed attribute name here
     })
   ];
 
@@ -52,7 +52,7 @@
     xdg.config.files."fish/functions/gitnrs.fish".source          = ../configs/fish/functions/gitnrs.fish;
     xdg.config.files."fish/functions/music-import.fish".source    = ../configs/fish/functions/music-import.fish;
     
-    # The mpris.so symlink config stays safely down here in Hjem user-space
-    xdg.config.files."mpv/scripts/mpris.so".source = "${pkgs.mpvScripts.mpv-mpris}/share/mpv/scripts/mpris.so";
+    # Fixed attribute name here too: pkgs.mpvScripts.mpris
+    xdg.config.files."mpv/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
   };
 }
