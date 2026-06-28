@@ -27,7 +27,7 @@ if status is-interactive
 
     # --- Fastfetch (System Info) ---
     if type -q fastfetch
-        fastfetch --config "$HOME/.config/fastfetch/empty_config.jsonc" \
+        fastfetch --config "$HOME/nix/configs/fastfetch/empty_config.jsonc" \
             --logo "$HOME/nix/Pictures/newlogo1.png" \
             --logo-type auto \
             --logo-width 35 \
@@ -35,11 +35,7 @@ if status is-interactive
     end
 
     # --- Load Custom Functions ---
-    if test -d "$HOME/nix/configs/fish/functions_extra"
-        for f in $HOME/nix/configs/fish/functions_extra/*.fish
-            source $f
-        end
-    end
+    set -p fish_function_path $HOME/nix/configs/fish/functions_extra
 
     # --- Git Abbreviations ---
     abbr -a gs 'git status'

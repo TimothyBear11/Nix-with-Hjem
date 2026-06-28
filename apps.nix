@@ -41,5 +41,6 @@
     yazi
     superfile
     concord 
+    brave
   ];
 }

@@ -15,7 +15,5 @@ switch $selection
     case noctaliav5
         noctalia >/dev/null 2>&1 &
     case wayle
-        setsid wayle shell >/dev/null 2>&1 &
-        sleep 0.5
         setsid wayle panel start >/dev/null 2>&1 &
 end
