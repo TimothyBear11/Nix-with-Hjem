@@ -48,7 +48,7 @@
     xdg.config.files."fish/functions/nix-du.fish".source          = ../configs/fish/functions/nix-du.fish;
     xdg.config.files."fish/functions/nrs.fish".source             = ../configs/fish/functions/nrs.fish;
     xdg.config.files."fish/functions/play.fish".source            = ../configs/fish/functions/play.fish;
-    xdg.config.files."fish/functions/shell-switch.fish".source    = ../configs/fish/functions/shell-switch.fish;
+    xdg.config.files."fish/functions/shell-switcher.fish".source    = ../configs/fish/functions/shell-switcher.fish;
     xdg.config.files."fish/functions/gitnrs.fish".source          = ../configs/fish/functions/gitnrs.fish;
     xdg.config.files."fish/functions/music-import.fish".source    = ../configs/fish/functions/music-import.fish;
     
