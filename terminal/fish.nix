@@ -4,6 +4,14 @@
   # Make the fish shell binary available system-wide
   programs.fish.enable = true;
 
+  # Global system packages (pulled OUTSIDE of Hjem)
+  environment.systemPackages = with pkgs; [
+    # Wrap mpv so it natively includes the MPRIS plugin system-wide
+    (mpv.override {
+      scripts = [ mpvScripts.mpv-mpris ];
+    })
+  ];
+
   hjem.users.tbear = {
     # Main shell file config
     xdg.config.files."fish/config.fish" = {
@@ -25,7 +33,7 @@
       source = ../configs/fish/conf.d/fish_frozen_key_bindings.fish;
       clobber = true;
     };
-
+    
     # --- CUSTOM RUNTIME FUNCTIONS ---
     xdg.config.files."fish/functions/fupdate-safe.fish".source    = ../configs/fish/functions/fupdate-safe.fish;
     xdg.config.files."fish/functions/git-safe.fish".source        = ../configs/fish/functions/git-safe.fish;
@@ -42,6 +50,9 @@
     xdg.config.files."fish/functions/play.fish".source            = ../configs/fish/functions/play.fish;
     xdg.config.files."fish/functions/shell-switch.fish".source    = ../configs/fish/functions/shell-switch.fish;
     xdg.config.files."fish/functions/gitnrs.fish".source          = ../configs/fish/functions/gitnrs.fish;
-    xdg.config.files."fish/functions/music-import.fish".source = ../configs/fish/functions/music-import.fish;
+    xdg.config.files."fish/functions/music-import.fish".source    = ../configs/fish/functions/music-import.fish;
+    
+    # The mpris.so symlink config stays safely down here in Hjem user-space
+    xdg.config.files."mpv/scripts/mpris.so".source = "${pkgs.mpvScripts.mpv-mpris}/share/mpv/scripts/mpris.so";
   };
 }
