@@ -24,7 +24,7 @@
     ];
 
     # v5 config (Default path: ~/.config/noctalia) -> palletts
-    xdg.config.files."noctalia/palletts/Marchborn.json" = {
+    xdg.config.files."noctalia/palettes/Marchborn.json" = {
       source = ../configs/noctalia/colorschemes/Marchborn/Marchborn.json;
       clobber = true;
     };
