@@ -11,6 +11,7 @@ function gitnrs --description 'Stage, commit, push, and rebuild NixOS'
     if type -q nrs
         echo "❄️ Triggering NixOS Rebuild (nrs)..."
         nrs
+        hjem-impure
     else
         echo "⚠️ Warning: 'nrs' function not found in environment. Skipping rebuild."
     end
