@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 # 1. Fuzzel Selection
-set -l selection (printf "ambxst\ncaelestia\ndms\nnoctalia\nnoctaliav5\nwayle" | fuzzel --dmenu -p "Select Shell: " | string trim)
+set -l selection (printf "ambxst\ncaelestia\ndms\nnoctalia\nwayle" | fuzzel --dmenu -p "Select Shell: " | string trim)
 if test -z "$selection"
     exit 0
 end

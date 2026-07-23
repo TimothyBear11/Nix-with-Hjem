@@ -2,37 +2,37 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # 1. Noctalia v5 (Launches via the 'noctalia' binary)
-    inputs.noctaliav5.packages.${pkgs.stdenv.hostPlatform.system}.default
-
-    # 2. Noctalia v4 'noctalia-shell' (Wrapped to isolate its config folder)
-    (writeShellScriptBin "noctalia-shell" ''
-      XDG_CONFIG_HOME="$HOME/.config/noctalia4_xdg" exec ${inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/noctalia-shell "$@"
-    '')
-
-    # 3. Noctalia v4 'noctalia-qs' (Wrapped so the engine also respects the isolated config)
-    (writeShellScriptBin "noctalia-qs" ''
-      XDG_CONFIG_HOME="$HOME/.config/noctalia4_xdg" exec ${inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/noctalia-qs "$@"
-    '')
+    # Put actual system packages here (e.g. git, vim, fastfetch)
   ];
 
+  programs.noctalia-greeter = {
+    enable = true;
+
+    settings = {
+      cursor = {
+        theme = "Adwaita";
+        size = 24;
+      };
+      idle.timeout = 300;
+    };
+  };
+
   hjem.users.tbear = {
+    # Load Noctalia's Hjem module inside the user's Hjem space!
+    imports = [
+      inputs.noctalia.hjemModules.default
+    ];
+
     # v5 config (Default path: ~/.config/noctalia) -> palletts
     xdg.config.files."noctalia/palletts/Marchborn.json" = {
-      source = ../configs/noctalia/colorschemes/Marchborn/Marchborn.json; 
+      source = ../configs/noctalia/colorschemes/Marchborn/Marchborn.json;
       clobber = true;
     };
 
-    # v4 config (Isolated path: ~/.config/noctalia4_xdg/noctalia) -> colorschemes
-    xdg.config.files."noctalia4_xdg/noctalia/colorschemes/Marchborn/Marchborn.json" = {
-      source = ../configs/noctalia/colorschemes/Marchborn/Marchborn.json; 
-      clobber = true; 
-    };
-
-    # Fuzzel config remains untouched
+    # Fuzzel config
     xdg.config.files."fuzzel/fuzzel.ini" = {
-        source = ../configs/fuzzel/fuzzel.ini;
-        clobber = true;
-      };
+      source = ../configs/fuzzel/fuzzel.ini;
+      clobber = true;
+    };
   };
 }

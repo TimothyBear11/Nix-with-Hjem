@@ -34,6 +34,7 @@
       "qwen2.5-coder:7b"
       "gemma3:12b"
       "qwen3.5:9b"
+      "ornith"
     ];
   };
 }

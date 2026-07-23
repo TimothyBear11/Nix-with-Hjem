@@ -28,6 +28,10 @@
     
   programs.dconf.enable = true;
 
+  programs.noctalia-greeter = {
+    enable = true;
+  };
+
   # XDG Portals Configuration (Strict routing to prevent desktop environment loops)
   xdg.portal = {
     enable = true;
@@ -43,6 +47,7 @@
 
   # Graphical Environment Packages & Desktop Utilities
   environment.systemPackages = with pkgs; [
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     xwayland-satellite  # Seamless XWayland integration
     libsForQt5.qt5ct    # Qt5 Theme Configuration
     kdePackages.qt6ct   # Qt6 Theme Configuration (Crucial for Plasma 6 apps under Hyprland)
@@ -57,6 +62,7 @@
     cliphist            # Clipboard history backend
     wayle
     awww
+    ashell
     
     ];
 

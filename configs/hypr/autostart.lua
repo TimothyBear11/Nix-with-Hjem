@@ -35,19 +35,20 @@ hl.on("hyprland.start", function()
         hl.exec_cmd("dms run")
     elseif active_shell == "wayle" then
         hl.exec_cmd("wayle shell & sleep 1 && wayle panel start")
+    elseif active_shell == "ashell" then
+        hl.exec_cmd("ashell")
     elseif active_shell == "noctalia" then
-        hl.exec_cmd("noctalia-shell")
-    elseif active_shell == "noctaliav5" then
         -- Added the Noctaliav5 entry
         hl.exec_cmd("noctalia") 
     else
-        hl.exec_cmd("noctalia-shell")
+        hl.exec_cmd("noctalia")
     end
     -- Workspace-Specific Favorites
     hl.exec_cmd("[workspace 2] sleep 3 && zed")
     hl.exec_cmd("[workspace 3] sleep 4 && steam")
     hl.exec_cmd("[workspace 4] sleep 2 && floorp")
     hl.exec_cmd("[workspace 5] sleep 2 && kitty -e btop")
+    hl.exec_cmd("[workspace 7] amberol")
 
     -- Launch Pyprland daemon
     hl.exec_cmd("pypr")

@@ -2,7 +2,7 @@
 
 {
   services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
+  services.displayManager.cosmic-greeter.enable = false;
 
   environment.systemPackages = with pkgs; [
     cosmic-edit

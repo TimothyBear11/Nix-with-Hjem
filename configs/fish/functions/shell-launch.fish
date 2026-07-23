@@ -11,8 +11,6 @@ switch $selection
     case dms
         setsid dms run >/dev/null 2>&1 &
     case noctalia
-        noctalia-shell >/dev/null 2>&1 &
-    case noctaliav5
         noctalia >/dev/null 2>&1 &
     case wayle
         setsid wayle panel start >/dev/null 2>&1 &

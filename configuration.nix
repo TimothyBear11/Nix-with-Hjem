@@ -81,6 +81,15 @@
     shell = pkgs.fish;
   };
 
+  hjem.extraModules = [
+    inputs.hjem-impure.hjemModules.default
+  ];
+
+  # 2. Enable it for tbear once (it merges with all your desktop/terminal files!)
+  hjem.users.tbear = {
+    impure.enable = true;
+  };
+
   # Ultra-fast Compressed RAM Swap (Saves NVMe read/write cycles)
   zramSwap.enable = true;
 

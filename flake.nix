@@ -21,11 +21,14 @@
     dms.url = "github:AvengeMedia/DankMaterialShell";
     dms.inputs.nixpkgs.follows = "nixpkgs";
 
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.url = "github:noctalia-dev/noctalia";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
-    noctaliav5.url = "github:noctalia-dev/noctalia-shell/v5";
-    noctaliav5.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
+    noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
+
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    millennium.inputs.nixpkgs.follows = "nixpkgs";
 
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
@@ -34,16 +37,16 @@
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hjem-impure = {
+      url = "github:Rexcrazy804/hjem-impure";
+      inputs.nixpkgs.follows = "";
+      inputs.hjem.follows = "";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, ... }:
-  let
-    app2unitOverlay = final: prev: {
-      app2unit = prev.app2unit.overrideAttrs (old: {
-        postPatch = "";
-      });
-    };
-  in {
+  {
     nixosConfigurations.nix-den = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; }; 
       
@@ -63,10 +66,19 @@
         inputs.dms.nixosModules.default
         inputs.niri.nixosModules.niri
         inputs.hjem.nixosModules.default
+        inputs.noctalia-greeter.nixosModules.default
 
         {
-          nixpkgs.overlays = [ app2unitOverlay ];
-          nixpkgs.config.allowUnfree = true;
+          nixpkgs.overlays = [
+            inputs.millennium.overlays.default
+
+            # Override the broken bun dependencies hash with the exact one reported by Nix
+            (final: prev: {
+              millennium-typescript-bun-deps = prev.millennium-typescript-bun-deps.overrideAttrs (oldAttrs: {
+                outputHash = "sha256-gQhAqitG9i+WzHnJBI7iEUkAz4/d7hPZlMb+Ace4vA8=";
+              });
+            })
+          ];
         }
       ];
     };
