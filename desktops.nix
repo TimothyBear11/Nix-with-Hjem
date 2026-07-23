@@ -33,19 +33,24 @@
   };
 
   # XDG Portals Configuration (Strict routing to prevent desktop environment loops)
-  xdg.portal = {
+  
+   xdg.portal = {
     enable = true;
     extraPortals = [ 
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
     ];
     config = {
-      common = { default = [ "gtk" ]; };
-      hyprland = { default = [ "hyprland" "gtk" ]; };
-      niri = { default = [ "gnome" "gtk" ]; };
+      common = { 
+        default = [ "gtk" ]; 
+      };
+      hyprland = { 
+        default = [ "hyprland" "gtk" ];
+        # Explicitly force GTK for file picking so it never queries hyprland portal for dialogs
+        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+      };
     };
-  };
-
-  # Graphical Environment Packages & Desktop Utilities
+  };  # Graphical Environment Packages & Desktop Utilities
   environment.systemPackages = with pkgs; [
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     xwayland-satellite  # Seamless XWayland integration
