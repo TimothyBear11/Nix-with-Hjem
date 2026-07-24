@@ -3,7 +3,7 @@
   boot.kernelPackages = pkgs.linuxPackagesFor inputs.nix-cachyos-kernel.packages.${pkgs.system}.linux-cachyos-latest-lto-x86_64-v3;
 #  boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
   services.scx.enable = true;
-  services.scx.scheduler = "scx_lavd";
+  services.scx.scheduler = "scx_bpfland";
   # 2. Binary cache settings
   nix.settings = {
     substituters = [ "https://attic.xuyh0120.win/lantian" ];

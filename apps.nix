@@ -43,5 +43,6 @@
     concord 
     brave
     amberol
+    rusty-path-of-building
   ];
 }
