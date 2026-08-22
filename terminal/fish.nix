@@ -18,7 +18,7 @@
       source = ../configs/fish/config.fish;
       clobber = true;
     };
-    
+
     # Keeps your plugin tracking profile active
     xdg.config.files."fish/fish_plugins" = {
       clobber = true;
@@ -33,7 +33,7 @@
       source = ../configs/fish/conf.d/fish_frozen_key_bindings.fish;
       clobber = true;
     };
-    
+
     # --- CUSTOM RUNTIME FUNCTIONS ---
     xdg.config.files."fish/functions/goodnight.fish".source       = ../configs/fish/functions/goodnight.fish;
     xdg.config.files."fish/functions/music-next.fish".source      = ../configs/fish/functions/music-next.fish;
@@ -49,7 +49,10 @@
     xdg.config.files."fish/functions/music-import.fish".source    = ../configs/fish/functions/music-import.fish;
     xdg.config.files."fish/functions/shell-launch.fish".source    = ../configs/fish/functions/shell-launch.fish;
     xdg.config.files."fish/functions/shell-kill.fish".source      = ../configs/fish/functions/shell-kill.fish;
-    
+    xdg.config.files."fish/functions/anidl.fish".source      = ../configs/fish/functions/anidl.fish;
+    xdg.config.files."fish/functions/aniplay.fish".source      = ../configs/fish/functions/aniplay.fish;
+    xdg.config.files."fish/functions/animusic.fish".source      = ../configs/fish/functions/animusic.fish;
+
     # Fixed attribute name here too: pkgs.mpvScripts.mpris
     xdg.config.files."mpv/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
   };

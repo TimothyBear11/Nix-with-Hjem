@@ -58,11 +58,11 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(shellMod .. " + S", hl.dsp.exec_cmd("fish /home/tbear/nix/configs/fish/functions/shell-switcher.fish"))
 
 -- Clean, Explicit Functional Layout Overlaps
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(toggleLauncher)) -- App Launcher
-hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd(toggleCC)) -- Control Center Panel
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(toggleLauncher))  -- App Launcher
+hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd(toggleCC))       -- Control Center Panel
 hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(toggleSettings)) -- System Configuration Settings
-hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(toggleClip)) -- Clipboard History Panel
-hl.bind(mainMod .. " + F4", hl.dsp.exec_cmd(toggleSession)) -- Power/Session Menu
+hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(toggleClip))     -- Clipboard History Panel
+hl.bind(mainMod .. " + F4", hl.dsp.exec_cmd(toggleSession))  -- Power/Session Menu
 
 hl.bind(mediaMod .. " + Up", hl.dsp.exec_cmd("fish --login -c 'music-play'"))
 hl.bind(mediaMod .. " + Down", hl.dsp.exec_cmd("fish --login -c 'music-pause'"))
@@ -72,6 +72,7 @@ hl.bind(mediaMod .. " + H", hl.dsp.exec_cmd("fish --login -c 'play hurt'"))
 hl.bind(mediaMod .. " + R", hl.dsp.exec_cmd("fish --login -c 'play relax'"))
 hl.bind(mediaMod .. " + P", hl.dsp.exec_cmd("fish --login -c 'play piano'"))
 hl.bind(mediaMod .. " + C", hl.dsp.exec_cmd("fish --login -c 'play chill'"))
+hl.bind(mediaMod .. " + M", hl.dsp.exec_cmd("/home/tbear/nix/scripts/media-hub.sh"))
 
 -- Move focus
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "l" }))
@@ -81,8 +82,8 @@ hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "d" }))
 
 -- Switch workspaces
 for i = 1, 9 do
-	hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+    hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
+    hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 hl.bind(mainMod .. " + 0", hl.dsp.focus({ workspace = 10 }))
 hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
@@ -101,37 +102,37 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Overlapping Hardware Media Controls (DMS inherits system wireplumber directly)
 hl.bind(
-	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd(
-		"noctalia-shell ipc call volume increase ; wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ ; dms ipc call volume increase"
-	),
-	{ repeating = true, locked = true }
+    "XF86AudioRaiseVolume",
+    hl.dsp.exec_cmd(
+        "noctalia-shell ipc call volume increase ; wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ ; dms ipc call volume increase"
+    ),
+    { repeating = true, locked = true }
 )
 hl.bind(
-	"XF86AudioLowerVolume",
-	hl.dsp.exec_cmd(
-		"noctalia-shell ipc call volume decrease ; wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- ; dms ipc call volume decrease"
-	),
-	{ repeating = true, locked = true }
+    "XF86AudioLowerVolume",
+    hl.dsp.exec_cmd(
+        "noctalia-shell ipc call volume decrease ; wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- ; dms ipc call volume decrease"
+    ),
+    { repeating = true, locked = true }
 )
 hl.bind(
-	"XF86AudioMute",
-	hl.dsp.exec_cmd(
-		"noctalia-shell ipc call volume muteOutput ; wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ; dms ipc call volume muteOutput"
-	),
-	{ locked = true }
+    "XF86AudioMute",
+    hl.dsp.exec_cmd(
+        "noctalia-shell ipc call volume muteOutput ; wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ; dms ipc call volume muteOutput"
+    ),
+    { locked = true }
 )
 hl.bind(
-	"XF86MonBrightnessUp",
-	hl.dsp.exec_cmd(
-		"noctalia-shell ipc call brightness increase ; brightnessctl set +5% ; dms ipc call brightness increase"
-	),
-	{ repeating = true, locked = true }
+    "XF86MonBrightnessUp",
+    hl.dsp.exec_cmd(
+        "noctalia-shell ipc call brightness increase ; brightnessctl set +5% ; dms ipc call brightness increase"
+    ),
+    { repeating = true, locked = true }
 )
 hl.bind(
-	"XF86MonBrightnessDown",
-	hl.dsp.exec_cmd(
-		"noctalia-shell ipc call brightness decrease ; brightnessctl set 5%- ; dms ipc call brightness decrease"
-	),
-	{ repeating = true, locked = true }
+    "XF86MonBrightnessDown",
+    hl.dsp.exec_cmd(
+        "noctalia-shell ipc call brightness decrease ; brightnessctl set 5%- ; dms ipc call brightness decrease"
+    ),
+    { repeating = true, locked = true }
 )
