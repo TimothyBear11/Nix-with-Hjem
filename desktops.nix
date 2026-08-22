@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -25,7 +30,7 @@
 
   services.desktopManager.gnome.enable = true;
   programs.seahorse.enable = false;
-    
+
   programs.dconf.enable = true;
 
   programs.noctalia-greeter = {
@@ -33,43 +38,55 @@
   };
 
   # XDG Portals Configuration (Strict routing to prevent desktop environment loops)
-  
-   xdg.portal = {
+  xdg.portal = {
     enable = true;
-    extraPortals = [ 
+    extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gnome
     ];
     config = {
-      common = { 
-        default = [ "gtk" ]; 
+      common = {
+        default = [ "gtk" ];
+        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
       };
-      hyprland = { 
-        default = [ "hyprland" "gtk" ];
-        # Explicitly force GTK for file picking so it never queries hyprland portal for dialogs
+      hyprland = {
+        default = [
+          "hyprland"
+          "gtk"
+        ];
+        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+      };
+      niri = {
+        default = [
+          "gnome"
+          "gtk"
+        ];
         "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
       };
     };
-  };  # Graphical Environment Packages & Desktop Utilities
+  };
+
+  # Graphical Environment Packages & Desktop Utilities
   environment.systemPackages = with pkgs; [
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    xwayland-satellite  # Seamless XWayland integration
-    libsForQt5.qt5ct    # Qt5 Theme Configuration
-    kdePackages.qt6ct   # Qt6 Theme Configuration (Crucial for Plasma 6 apps under Hyprland)
-    wl-clipboard        # Wayland Clipboard engine
-    kanshi               # Dynamic display profile manager
-    wlr-randr           # Monitor manipulation tool
-    grim                # Screenshot tool
-    slurp               # Screen region selector
-    pavucontrol         # PulseAudio/PipeWire Volume Control GUI
-    gnome-keyring       # Secure password/credential storage backend
+    xwayland-satellite # Seamless XWayland integration
+    libsForQt5.qt5ct # Qt5 Theme Configuration
+    kdePackages.qt6ct # Qt6 Theme Configuration (Crucial for Plasma 6 apps under Hyprland)
+    wl-clipboard # Wayland Clipboard engine
+    kanshi # Dynamic display profile manager
+    wlr-randr # Monitor manipulation tool
+    grim # Screenshot tool
+    slurp # Screen region selector
+    pavucontrol # PulseAudio/PipeWire Volume Control GUI
+    gnome-keyring # Secure password/credential storage backend
     networkmanagerapplet # Network tray icon (nm-applet)
-    cliphist            # Clipboard history backend
+    cliphist # Clipboard history backend
     wayle
     awww
     ashell
-    
-    ];
+
+  ];
 
   # Session Variables for Unified Theme Handshakes
   environment.sessionVariables = {
