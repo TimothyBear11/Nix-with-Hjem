@@ -3,12 +3,12 @@
 {
   programs.steam = {
     enable = true;
-    package = pkgs.millennium-steam;
+    # package = pkgs.millennium-steam;
     gamescopeSession.enable = true;
   };
 
   programs.gamemode.enable = true;
-  
+
   programs.gamescope = {
     enable = true;
     capSysNice = false;
@@ -23,7 +23,7 @@
       SUBSYSTEM=="usb", ATTR{idVendor}=="045e", ATTR{idProduct}=="02e0", MODE="0666"
     '';
   };
-    
+
   environment.systemPackages = with pkgs; [
     heroic
     protonup-qt
