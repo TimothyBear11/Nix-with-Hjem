@@ -8,9 +8,9 @@
     nixd
 
     # -- IDEs --
-    
+
     vscodium
-    jetbrains.pycharm-oss
+    jetbrains.pycharm
     zed-editor
     positron-bin
     helix
@@ -28,6 +28,6 @@
     file
     fzf
     ripgrep
-    
+
   ];
 }
