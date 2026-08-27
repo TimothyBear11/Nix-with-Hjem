@@ -18,7 +18,7 @@
     spicetify-cli
     uv
     jq
-    apostrophe 
+    apostrophe
     obsidian
     ani-cli
     yt-dlp
@@ -40,10 +40,11 @@
     libnotify
     yazi
     superfile
-    concord 
+    concord
     amberol
     rusty-path-of-building
     jellyfin-desktop
     cosmic-files
+    fuzzel
   ];
 }
