@@ -1,19 +1,23 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./ai.nix
-      ./apps.nix
-      ./desktops.nix
-      ./dev.nix
-      ./fontsAndNeeds.nix
-      ./gaming.nix
-      ./hardware-configuration.nix
-      ./kernel.nix
-      ./terminal.nix
-      ./obs.nix 
-    ];
+  imports = [
+    ./ai.nix
+    ./apps.nix
+    ./desktops.nix
+    ./dev.nix
+    ./fontsAndNeeds.nix
+    ./gaming.nix
+    ./hardware-configuration.nix
+    ./kernel.nix
+    ./terminal.nix
+    ./obs.nix
+  ];
 
   # Bootloader setup
   boot.loader.systemd-boot.enable = true;
@@ -51,6 +55,7 @@
   services.jellyfin = {
     enable = true;
     openFirewall = true;
+    user = "tbear";
   };
 
   # Audio Stack (PipeWire)
@@ -78,12 +83,16 @@
       TimeoutStopSec = 10;
     };
   };
-  
+
   # User Account Management
   users.users.tbear = {
     isNormalUser = true;
     description = "Timothy Bear";
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+    ];
     shell = pkgs.fish;
   };
 
@@ -114,13 +123,19 @@
 
     settings = {
       download-buffer-size = 1073741824; # 1GB
-      experimental-features = [ "nix-command" "flakes" ];
-      trusted-users = [ "root" "@wheel" ];
-      
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
+
       # Pin global nixpkgs channel registry to local paths for instant offline resolution
       nix-path = [ "nixpkgs=${pkgs.path}" ];
     };
-    
+
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -136,6 +151,6 @@
   system.nixos.distroName = "GuardianOS";
   system.nixos.distroId = "guardianos";
   system.nixos.label = "Bear-Edition";
-  
+
   system.stateVersion = "25.05"; # Pin original installation deployment lifecycle status
 }
