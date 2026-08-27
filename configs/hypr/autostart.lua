@@ -4,7 +4,8 @@
 
 hl.on("hyprland.start", function()
     -- Critical System Services
-    hl.exec_cmd("export XDG_CURRENT_DESKTOP=Hyprland && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP") 
+    hl.exec_cmd(
+        "export XDG_CURRENT_DESKTOP=Hyprland && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     hl.exec_cmd("nm-applet")
     hl.exec_cmd("kdeconnect-indicator")
     hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh")
@@ -39,12 +40,12 @@ hl.on("hyprland.start", function()
         hl.exec_cmd("ashell")
     elseif active_shell == "noctalia" then
         -- Added the Noctaliav5 entry
-        hl.exec_cmd("noctalia") 
+        hl.exec_cmd("noctalia")
     else
         hl.exec_cmd("noctalia")
     end
     -- Workspace-Specific Favorites
-    hl.exec_cmd("[workspace 2] sleep 3 && zed")
+    hl.exec_cmd("[workspace 2] sleep 3 && zeditor")
     hl.exec_cmd("[workspace 3] sleep 4 && steam")
     hl.exec_cmd("[workspace 4] sleep 2 && floorp")
     hl.exec_cmd("[workspace 5] sleep 2 && kitty -e btop")

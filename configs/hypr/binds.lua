@@ -47,9 +47,11 @@ hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd("pypr toggle ollama"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("thunar"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("kate"))
+hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("steam"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("positron"))
 hl.bind(mainMod .. " + J", hl.dsp.exec_cmd("joplin"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("floorp"))
+hl.bind(mainMod .. " + H", hl.dsp.exec_cmd("fuzzel"))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("zeditor"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("kitty -e nvim"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
@@ -59,7 +61,7 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(shellMod .. " + S", hl.dsp.exec_cmd("fish /home/tbear/nix/configs/fish/functions/shell-switcher.fish"))
 
 -- Clean, Explicit Functional Layout Overlaps
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(toggleLauncher))  -- App Launcher
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("fuzzel"))        -- App Launcher
 hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd(toggleCC))       -- Control Center Panel
 hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(toggleSettings)) -- System Configuration Settings
 hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(toggleClip))     -- Clipboard History Panel
