@@ -50,11 +50,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787725821,
-        "narHash": "sha256-BtKRBABquue78E61GUi5WGqaMGma/LWI2jy92GYlQ+E=",
+        "lastModified": 1787820179,
+        "narHash": "sha256-lGlpMlVBRv53CFqFlRT3uxCPrEBsUdNMERFJ8STw/X4=",
         "owner": "caelestia-dots",
         "repo": "cli",
-        "rev": "a576c05a87d26cf8b726d68209cd03a07f1e37da",
+        "rev": "96b2196d38eb8ff19cd76df018117ded7c55f4f0",
         "type": "github"
       },
       "original": {
@@ -100,11 +100,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1787499951,
-        "narHash": "sha256-Q4C0BJGVxG5Y+zL4hKI6R+A9I+r95wfbh1YG68dqTr0=",
+        "lastModified": 1787797916,
+        "narHash": "sha256-sly+gs1Lyyn8BIei7ixGZWGK3s7PtQgSMb0N4hVecTc=",
         "owner": "caelestia-dots",
         "repo": "shell",
-        "rev": "1d0e5a588c61f1d905eba5fe8446ec222d37f50c",
+        "rev": "5debe20729833669018bf9aa46dd3be4015c6a6f",
         "type": "github"
       },
       "original": {
@@ -121,11 +121,11 @@
         "quickshell": "quickshell_2"
       },
       "locked": {
-        "lastModified": 1787797916,
-        "narHash": "sha256-sly+gs1Lyyn8BIei7ixGZWGK3s7PtQgSMb0N4hVecTc=",
+        "lastModified": 1787832492,
+        "narHash": "sha256-CbwPo2vctk9q+zJ+jHNFZUchB07VouKRzk5OSeNCgdo=",
         "owner": "caelestia-dots",
         "repo": "shell",
-        "rev": "5debe20729833669018bf9aa46dd3be4015c6a6f",
+        "rev": "88959e9ce072b067a35102c4c060803985c73ac0",
         "type": "github"
       },
       "original": {
@@ -159,11 +159,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787802366,
-        "narHash": "sha256-W7adIRBTSTQoYmV0pAMSQMcOs5ixoQbFgItASqP57yw=",
+        "lastModified": 1787838023,
+        "narHash": "sha256-IZI4g/8V/0YG+s3cF4ujvXNFJ/V6DQSUka+JqT/b7lQ=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "64d0e40bafc525ff547154e1c16ee84ba3e0cdb1",
+        "rev": "42080db61bf8b9ecac5942a38cb54b08beef00cb",
         "type": "github"
       },
       "original": {
@@ -344,11 +344,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1787800812,
-        "narHash": "sha256-eFoRYbgcHPteWggeNFUoPJIeA1By+fCp5cjbnBaMyZ4=",
+        "lastModified": 1787813077,
+        "narHash": "sha256-od6lK1KOquakP/GD17fGEm1ck5EMZa/s+jhmvGrRFzk=",
         "owner": "mangowm",
         "repo": "mango",
-        "rev": "294b3782f979561cd279bc6aca470ca8b4000b90",
+        "rev": "641c36fcbbe508c46f27b435d5a68d4e9b32f59f",
         "type": "github"
       },
       "original": {
@@ -577,11 +577,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787770646,
-        "narHash": "sha256-XKVCQNebyqRXTMwI/YR9nMd42Q5nYP65L8xkNcbQDXM=",
+        "lastModified": 1787836896,
+        "narHash": "sha256-I9Bs9scEn3OiqYVi4YaR7QCFnubrk1IL9Ru26OHbiqg=",
         "owner": "noctalia-dev",
         "repo": "noctalia",
-        "rev": "75a00852ddeaf31442bb3bbe8440fc71b3fbe9e6",
+        "rev": "f96a407deb109c9db6f29db75e6fe487a5289e02",
         "type": "github"
       },
       "original": {
