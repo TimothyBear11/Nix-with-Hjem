@@ -15,7 +15,7 @@
   # 2. SYSTEM PACKAGES
   environment.systemPackages = with pkgs; [
     lmstudio
-    gemini-cli
+    antigravity-cli
     rocmPackages.rocm-smi
     rocmPackages.rocminfo
   ];
@@ -34,7 +34,7 @@
       "qwen2.5-coder:7b"
       "gemma3:12b"
       "qwen3.5:9b"
-      
+
     ];
   };
 }

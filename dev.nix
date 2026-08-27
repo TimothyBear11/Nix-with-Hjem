@@ -14,9 +14,9 @@
     zed-editor
     positron-bin
     helix
-    antigravity
+    antigravity-ide
     code-cursor
-    windsurf
+    devin-desktop
 
     # -- Productivity --
     direnv
