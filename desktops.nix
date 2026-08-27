@@ -13,7 +13,7 @@
     ./desktops/dms.nix
     ./desktops/noctalia.nix
     ./desktops/hyprland.nix
-    ./desktops/niri.nix
+    # ./desktops/niri.nix
     ./desktops/mango.nix
     ./desktops/qtile.nix
     ./desktops/gnome.nix
