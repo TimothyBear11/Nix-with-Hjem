@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787782900,
-        "narHash": "sha256-DZjrlP3ABGcYNM4SGee0hvCR3LYVhmPZFlgKeBCManI=",
+        "lastModified": 1787807875,
+        "narHash": "sha256-aTDwBPPmWWYtQu5Q6gYG9PwIfMygOXg1o9cu0biOz6Y=",
         "owner": "Axenide",
         "repo": "Ambxst",
-        "rev": "380dcf2ac641185c614a29c244d4d6b277c9c177",
+        "rev": "5fb62f04782fe33f54cdf4fffad8f509ca9058b6",
         "type": "github"
       },
       "original": {
