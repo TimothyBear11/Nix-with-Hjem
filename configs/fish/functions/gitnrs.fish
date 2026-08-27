@@ -10,6 +10,7 @@ function gitnrs --description 'Stage, commit, push, and rebuild NixOS'
 
     if type -q nrs
         echo "❄️ Triggering NixOS Rebuild (nrs)..."
+        nix flake update
         nrs
         hjem-impure
     else
