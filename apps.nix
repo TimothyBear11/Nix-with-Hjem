@@ -43,5 +43,7 @@
     concord 
     amberol
     rusty-path-of-building
+    jellyfin-desktop
+    cosmic-files
   ];
 }

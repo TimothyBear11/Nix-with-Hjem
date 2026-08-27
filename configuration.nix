@@ -47,6 +47,12 @@
   };
   services.printing.enable = true;
 
+  #Jellyfin Server
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
+
   # Audio Stack (PipeWire)
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;

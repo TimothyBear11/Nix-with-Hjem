@@ -1,7 +1,7 @@
 -------------------
 --- KEYBINDINGS ---
 -------------------
-local fileManager = "thunar"
+
 
 -- 2. NOCTALIA IPC BINDINGS
 local noct = "noctalia msg"
@@ -10,6 +10,7 @@ local noctCC = noct .. " panel-toggle control-center"
 local noctSettings = noct .. " settings-toggle"
 local noctClip = noct .. " clipboard"
 local noctSession = noct .. " sessionMenu"
+
 -- 3. CAELESTIA IPC BINDINGS (Now with escaped string arguments for Quickshell)
 local cael = "caelestia shell"
 local caelLauncher = cael .. " drawers toggle 'launcher'"
@@ -43,7 +44,7 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("kitty"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("pypr toggle term"))
 hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd("pypr toggle ollama"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("thunar"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("kate"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("positron"))
