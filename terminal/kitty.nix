@@ -6,7 +6,7 @@
 
   # 2. Let Hjem handle your configuration layout declaratively
   hjem.users.tbear = {
-    clobber = true;
+    clobberFiles = true;
     files.".config/kitty/kitty.conf".text = ''
       # ==========================================
       # Window Layout & Behavior
