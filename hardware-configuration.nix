@@ -14,35 +14,35 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/9604d7c8-82fe-4d7f-a477-63d8e6e3db37";
+    { device = "/dev/disk/by-uuid/6b380836-c163-49e8-9a36-aa792764cf62";
       fsType = "btrfs";
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/9604d7c8-82fe-4d7f-a477-63d8e6e3db37";
+    { device = "/dev/disk/by-uuid/6b380836-c163-49e8-9a36-aa792764cf62";
       fsType = "btrfs";
       options = [ "subvol=home" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/9604d7c8-82fe-4d7f-a477-63d8e6e3db37";
+    { device = "/dev/disk/by-uuid/6b380836-c163-49e8-9a36-aa792764cf62";
       fsType = "btrfs";
       options = [ "subvol=nix" ];
     };
 
-  fileSystems."/home/tbear/Games" =
+   fileSystems."/home/tbear/Games" =
     { device = "/dev/disk/by-uuid/225032c6-ef41-4fd8-9c66-f50a7a0879d5";
       fsType = "btrfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/7DC1-8F1E";
+    { device = "/dev/disk/by-uuid/D1C2-8794";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/96735319-b570-48e9-8be4-87a6c76fbc95"; }
+    [ { device = "/dev/disk/by-uuid/d683a1b7-4cd2-44fb-af4c-03fe618a7c82"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

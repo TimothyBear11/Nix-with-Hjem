@@ -8,7 +8,7 @@
 {
   imports = [
     # Modular Desktop Environments & Compositors
-    #./desktops/ambxst.nix
+    ./desktops/ambxst.nix
     ./desktops/caelestia.nix
     ./desktops/dms.nix
     ./desktops/noctalia.nix
