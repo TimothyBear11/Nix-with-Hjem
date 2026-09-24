@@ -54,6 +54,6 @@
     xdg.config.files."fish/functions/animusic.fish".source      = ../configs/fish/functions/animusic.fish;
 
     # Fixed attribute name here too: pkgs.mpvScripts.mpris
-    xdg.config.files."mpv/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
+    xdg.config.files."mpv/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so"; clobber = true;
   };
 }
