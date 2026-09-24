@@ -14,7 +14,7 @@
 
   hjem.users.tbear = {
     # Globally enable clobbering for all files managed by Hjem for user tbear
-    clobber = true;
+    clobberFiles = true;
 
     # Main shell file config
     xdg.config.files."fish/config.fish".source = ../configs/fish/config.fish;
