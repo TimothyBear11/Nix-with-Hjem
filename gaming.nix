@@ -1,18 +1,19 @@
 { config, pkgs, ... }:
 
 {
+  # Steam configuration
   programs.steam = {
     enable = true;
     # package = pkgs.millennium-steam;
     gamescopeSession.enable = true;
 
-    # Enable extra compatibility packages & 32-bit driver libraries inside Steam FHS env
+    # Extra compatibility tools (GE-Proton, etc.) inside Steam FHS environment
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
   };
 
-  # 1. FIX: Enable GameMode and set capSysNice so gamemode can actually apply process priorities
+  # GameMode configuration with proper process renice capabilities
   programs.gamemode = {
     enable = true;
     enableRenice = true;
@@ -23,24 +24,27 @@
     };
   };
 
-  # 2. FIX: Set capSysNice to true so gamescope can set realtime thread scheduling
+  # Gamescope with capSysNice enabled for realtime thread scheduling
   programs.gamescope = {
     enable = true;
-    capSysNice = true;
+    capSysNice = true; # Required for smooth frame pacing without thread starvation
   };
 
-  # 3. FIX: Prevent Mesa/Driver VRAM leaks and shader cache eviction on NixOS
+  # Environment variables for Mesa/RADV (AMD RX 6700 XT) & DXVK memory management
   environment.sessionVariables = {
+    # Forces RADV to aggressively free unused VRAM allocations between matches
+    AMD_DEBUG = "nongg";
+    # Expands Mesa shader disk cache size to prevent mid-game recompilation stutter
     MESA_SHADER_CACHE_MAX_SIZE = "10G";
     __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
-    # Helps DXVK flush stale pipeline allocations on map reloads
+    # Forces DXVK/VKD3D state cache stability
     DXVK_STATE_CACHE = "1";
   };
 
-  # 4. FIX: Set swap and memory pressure tweaks at the kernel level
+  # Kernel parameters to fix high memory mapping limits and swap thrashing
   boot.kernel.sysctl = {
-    "vm.max_map_count" = 2147483642; # Required for modern games/DXVK memory mappings
-    "vm.swappiness" = 10;            # Prevents premature swap thrashing
+    "vm.max_map_count" = 2147483642; # Prevents Vulkan/Proton memory mapping bottlenecks
+    "vm.swappiness" = 10;            # Prevents aggressive swap usage during long sessions
   };
 
   # Controller support - udev rules
@@ -53,10 +57,11 @@
     '';
   };
 
+  # System packages
   environment.systemPackages = with pkgs; [
     heroic
     protonup-qt
     protonplus
-    mangohud # Recommended for tracking real-time VRAM/RAM leaks in-game
+    mangohud # Helpful for monitoring VRAM/RAM usage in real time
   ];
 }
