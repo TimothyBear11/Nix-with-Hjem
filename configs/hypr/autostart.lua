@@ -47,9 +47,9 @@ hl.on("hyprland.start", function()
     -- Workspace-Specific Favorites
     hl.exec_cmd("[workspace 2] sleep 3 && zeditor")
     hl.exec_cmd("[workspace 3] sleep 4 && steam")
-    hl.exec_cmd("[workspace 4] sleep 2 && floorp")
-    hl.exec_cmd("[workspace 7] amberol")
-    hl.exec_cmd("[workspace 8] sleep 2 && kitty -e btop")
+    hl.exec_cmd("[workspace 5] sleep 2 && floorp")
+    hl.exec_cmd("[workspace 6] amberol")
+    hl.exec_cmd("[workspace 7] sleep 2 && kitty -e btop")
 
     -- Launch Pyprland daemon
     hl.exec_cmd("pypr")
